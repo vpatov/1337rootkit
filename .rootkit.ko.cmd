@@ -1,0 +1,1 @@
+cmd_/home/vpatov/Documents/rootkit/1337rootkit/rootkit.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/vpatov/Documents/rootkit/1337rootkit/rootkit.ko /home/vpatov/Documents/rootkit/1337rootkit/rootkit.o /home/vpatov/Documents/rootkit/1337rootkit/rootkit.mod.o
