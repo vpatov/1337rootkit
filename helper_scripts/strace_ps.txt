@@ -1,1455 +1,1514 @@
-execve("/bin/ps", ["ps"], [/* 62 vars */]) = 0
-brk(NULL)                               = 0x1912000
+execve("/bin/ps", ["ps"], [/* 37 vars */]) = 0
+brk(0)                                  = 0x8cc2000
 access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4124a86000
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb778d000
 access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
 open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
-fstat(3, {st_mode=S_IFREG|0644, st_size=96553, ...}) = 0
-mmap(NULL, 96553, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f4124a6e000
+fstat64(3, {st_mode=S_IFREG|0644, st_size=69008, ...}) = 0
+mmap2(NULL, 69008, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb777c000
 close(3)                                = 0
 access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libprocps.so.4", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0pD\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=76744, ...}) = 0
-mmap(NULL, 2253888, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f412463c000
-mprotect(0x7f412464d000, 2097152, PROT_NONE) = 0
-mmap(0x7f412484d000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x11000) = 0x7f412484d000
-mmap(0x7f412484f000, 78912, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f412484f000
+open("/lib/libproc-3.2.8.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\220$\0\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0644, st_size=67400, ...}) = 0
+mmap2(NULL, 137528, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb775a000
+mmap2(0xb7769000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf) = 0xb7769000
+mmap2(0xb776b000, 67896, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb776b000
 close(3)                                = 0
 access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\240\r\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=14608, ...}) = 0
-mmap(NULL, 2109680, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f4124438000
-mprotect(0x7f412443b000, 2093056, PROT_NONE) = 0
-mmap(0x7f412463a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x7f412463a000
+open("/lib/i386-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0000\226\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1734120, ...}) = 0
+mmap2(NULL, 1743580, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75b0000
+mmap2(0xb7754000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1a4) = 0xb7754000
+mmap2(0xb7757000, 10972, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb7757000
 close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\t\2\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0755, st_size=1864888, ...}) = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f4124a6d000
-mmap(NULL, 3967488, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f412406f000
-mprotect(0x7f412422f000, 2093056, PROT_NONE) = 0
-mmap(0x7f412442e000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bf000) = 0x7f412442e000
-mmap(0x7f4124434000, 14848, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f4124434000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb75af000
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb75ae000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb75ae6c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb7754000, 8192, PROT_READ)   = 0
+mprotect(0xb7769000, 4096, PROT_READ)   = 0
+mprotect(0x805d000, 4096, PROT_READ)    = 0
+mprotect(0xb77b0000, 4096, PROT_READ)   = 0
+munmap(0xb777c000, 69008)               = 0
+brk(0)                                  = 0x8cc2000
+brk(0x8ce3000)                          = 0x8ce3000
+open("/proc/version", O_RDONLY)         = 3
+fstat64(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb778c000
+read(3, "Linux version 3.11.0-15-generic "..., 1024) = 154
 close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libsystemd.so.0", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=536520, ...}) = 0
-mmap(NULL, 540800, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f41249e8000
-mmap(0x7f4124a68000, 16384, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x7f000) = 0x7f4124a68000
-mmap(0x7f4124a6c000, 128, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f4124a6c000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260Z\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=130224, ...}) = 0
-mmap(NULL, 2234080, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f4123e4d000
-mprotect(0x7f4123e6c000, 2093056, PROT_NONE) = 0
-mmap(0x7f412406b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1e000) = 0x7f412406b000
-mmap(0x7f412406d000, 5856, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f412406d000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/librt.so.1", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0!\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=31712, ...}) = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f41249e7000
-mmap(NULL, 2128832, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f4123c45000
-mprotect(0x7f4123c4c000, 2093056, PROT_NONE) = 0
-mmap(0x7f4123e4b000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6000) = 0x7f4123e4b000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/liblzma.so.5", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320 \0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=137400, ...}) = 0
-mmap(NULL, 2232456, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f4123a23000
-mprotect(0x7f4123a44000, 2093056, PROT_NONE) = 0
-mmap(0x7f4123c43000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x20000) = 0x7f4123c43000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libgcrypt.so.20", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\215\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=919168, ...}) = 0
-mmap(NULL, 3015360, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f4123742000
-mprotect(0x7f412381a000, 2093056, PROT_NONE) = 0
-mmap(0x7f4123a19000, 36864, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xd7000) = 0x7f4123a19000
-mmap(0x7f4123a22000, 704, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f4123a22000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\360`\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0755, st_size=138744, ...}) = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f41249e6000
-mmap(NULL, 2212904, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f4123525000
-mprotect(0x7f412353d000, 2093056, PROT_NONE) = 0
-mmap(0x7f412373c000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x17000) = 0x7f412373c000
-mmap(0x7f412373e000, 13352, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f412373e000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libpcre.so.3", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0000\25\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=456632, ...}) = 0
-mmap(NULL, 2552072, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f41232b5000
-mprotect(0x7f4123323000, 2097152, PROT_NONE) = 0
-mmap(0x7f4123523000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x6e000) = 0x7f4123523000
-close(3)                                = 0
-access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
-open("/lib/x86_64-linux-gnu/libgpg-error.so.0", O_RDONLY|O_CLOEXEC) = 3
-read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\320(\0\0\0\0\0\0"..., 832) = 832
-fstat(3, {st_mode=S_IFREG|0644, st_size=80496, ...}) = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f41249e5000
-mmap(NULL, 2175544, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f41230a1000
-mprotect(0x7f41230b3000, 2097152, PROT_NONE) = 0
-mmap(0x7f41232b3000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x12000) = 0x7f41232b3000
-close(3)                                = 0
-mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f41249e4000
-mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f41249e2000
-arch_prctl(ARCH_SET_FS, 0x7f41249e2880) = 0
-mprotect(0x7f412442e000, 16384, PROT_READ) = 0
-mprotect(0x7f41232b3000, 4096, PROT_READ) = 0
-mprotect(0x7f412373c000, 4096, PROT_READ) = 0
-mprotect(0x7f4123523000, 4096, PROT_READ) = 0
-mprotect(0x7f4123a19000, 4096, PROT_READ) = 0
-mprotect(0x7f412463a000, 4096, PROT_READ) = 0
-mprotect(0x7f4123c43000, 4096, PROT_READ) = 0
-mprotect(0x7f4123e4b000, 4096, PROT_READ) = 0
-mprotect(0x7f412406b000, 4096, PROT_READ) = 0
-mprotect(0x7f4124a68000, 12288, PROT_READ) = 0
-mprotect(0x7f412484d000, 4096, PROT_READ) = 0
-mprotect(0x616000, 4096, PROT_READ)     = 0
-mprotect(0x7f4124a88000, 4096, PROT_READ) = 0
-munmap(0x7f4124a6e000, 96553)           = 0
-set_tid_address(0x7f41249e2b50)         = 7253
-set_robust_list(0x7f41249e2b60, 24)     = 0
-rt_sigaction(SIGRTMIN, {0x7f412352ab90, [], SA_RESTORER|SA_SIGINFO, 0x7f41235363d0}, NULL, 8) = 0
-rt_sigaction(SIGRT_1, {0x7f412352ac20, [], SA_RESTORER|SA_RESTART|SA_SIGINFO, 0x7f41235363d0}, NULL, 8) = 0
-rt_sigprocmask(SIG_UNBLOCK, [RTMIN RT_1], NULL, 8) = 0
-getrlimit(RLIMIT_STACK, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
-brk(NULL)                               = 0x1912000
-brk(0x1933000)                          = 0x1933000
-statfs("/sys/fs/selinux", 0x7fffe987ca90) = -1 ENOENT (No such file or directory)
-statfs("/selinux", 0x7fffe987ca90)      = -1 ENOENT (No such file or directory)
-open("/proc/filesystems", O_RDONLY)     = 3
-fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
-read(3, "nodev\tsysfs\nnodev\trootfs\nnodev\tr"..., 1024) = 344
-read(3, "", 1024)                       = 0
-close(3)                                = 0
-uname({sysname="Linux", nodename="vpatov-VirtualBox", ...}) = 0
+munmap(0xb778c000, 4096)                = 0
+time(NULL)                              = 1478027856
 open("/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = 3
 read(3, "0\n", 8192)                    = 2
 close(3)                                = 0
-open("/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
-fstat(3, {st_mode=S_IFREG|0644, st_size=10219008, ...}) = 0
-mmap(NULL, 10219008, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f41226e2000
+open("/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=8752640, ...}) = 0
+mmap2(NULL, 2097152, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb73ae000
+mmap2(NULL, 4096, PROT_READ, MAP_PRIVATE, 3, 0x5e0) = 0xb778c000
 close(3)                                = 0
-rt_sigaction(SIGSYS, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGPWR, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGIO, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGVTALRM, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGXFSZ, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGXCPU, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGURG, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGTTIN, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGCHLD, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGSTKFLT, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGTERM, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGALRM, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGPIPE, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGUSR2, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGSEGV, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGUSR1, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGFPE, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGBUS, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGABRT, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGTRAP, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGILL, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
-rt_sigaction(SIGHUP, {0x403220, ~[RTMIN RT_1], SA_RESTORER, 0x7f41240a44a0}, NULL, 8) = 0
+rt_sigaction(SIGSYS, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGPWR, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGIO, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGVTALRM, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGXFSZ, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGXCPU, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGURG, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGTTIN, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGCONT, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGCHLD, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGSTKFLT, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGTERM, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGALRM, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGPIPE, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGUSR2, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGSEGV, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGUSR1, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGFPE, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGBUS, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGABRT, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGTRAP, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGILL, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
+rt_sigaction(SIGHUP, {0x8049324, ~[RTMIN RT_1], 0}, NULL, 8) = 0
 open("/proc/self/stat", O_RDONLY)       = 3
-read(3, "7253 (ps) R 7251 7251 3545 34820"..., 1024) = 308
+read(3, "4837 (ps) R 4836 4836 2290 34816"..., 1024) = 270
+read(3, "", 754)                        = 0
 close(3)                                = 0
-ioctl(1, TIOCGWINSZ, 0x7fffe987c9c0)    = -1 ENOTTY (Inappropriate ioctl for device)
-ioctl(2, TIOCGWINSZ, 0x7fffe987c9c0)    = -1 ENOTTY (Inappropriate ioctl for device)
-ioctl(0, TIOCGWINSZ, {ws_row=22, ws_col=142, ws_xpixel=0, ws_ypixel=0}) = 0
-ioctl(1, TCGETS, 0x7fffe987c930)        = -1 ENOTTY (Inappropriate ioctl for device)
-geteuid()                               = 1000
+ioctl(1, TIOCGWINSZ, 0xbfbfeb5c)        = -1 ENOTTY (Inappropriate ioctl for device)
+ioctl(2, TIOCGWINSZ, 0xbfbfeb5c)        = -1 ENOTTY (Inappropriate ioctl for device)
+ioctl(0, TIOCGWINSZ, {ws_row=24, ws_col=80, ws_xpixel=0, ws_ypixel=0}) = 0
+ioctl(1, SNDCTL_TMR_TIMEBASE or TCGETS, 0xbfbfeaa8) = -1 ENOTTY (Inappropriate ioctl for device)
+geteuid32()                             = 1000
 open("/proc/uptime", O_RDONLY)          = 3
 lseek(3, 0, SEEK_SET)                   = 0
-read(3, "43290.02 36482.68\n", 8191)    = 18
-open("/usr/share/locale/locale.alias", O_RDONLY|O_CLOEXEC) = 4
-fstat(4, {st_mode=S_IFREG|0644, st_size=2995, ...}) = 0
-read(4, "# Locale name alias data base.\n#"..., 4096) = 2995
-read(4, "", 4096)                       = 0
-close(4)                                = 0
-open("/usr/share/locale/en_US/LC_MESSAGES/procps-ng.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
-open("/usr/share/locale/en/LC_MESSAGES/procps-ng.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
-open("/usr/share/locale-langpack/en_US/LC_MESSAGES/procps-ng.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
-open("/usr/share/locale-langpack/en/LC_MESSAGES/procps-ng.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+read(3, "2126.01 2016.26\n", 2047)      = 16
 open("/proc/sys/kernel/pid_max", O_RDONLY) = 4
 read(4, "32768\n", 24)                  = 6
 close(4)                                = 0
-mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f41249c0000
-mprotect(0x7f41249e1000, 4096, PROT_NONE) = 0
+mmap2(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb738c000
+mprotect(0xb73ad000, 4096, PROT_NONE)   = 0
+time(NULL)                              = 1478027856
 open("/proc/meminfo", O_RDONLY)         = 4
 lseek(4, 0, SEEK_SET)                   = 0
-read(4, "MemTotal:        2048464 kB\nMemF"..., 8191) = 1251
-stat("/proc/self/task", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc", O_RDONLY|O_NONBLOCK|O_DIRECTORY|O_CLOEXEC) = 5
-fstat(5, {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-mmap(NULL, 135168, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f412499f000
-mmap(NULL, 135168, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f412497e000
-getdents(5, /* 235 entries */, 32768)   = 6016
-stat("/proc/1", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+read(4, "MemTotal:        2063504 kB\nMemF"..., 2047) = 1276
+stat64("/proc/self/task", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+openat(AT_FDCWD, "/proc", O_RDONLY|O_NONBLOCK|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 5
+getdents(5, /* 214 entries */, 32768)   = 3688
+stat64("/proc/1", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/1/stat", O_RDONLY)          = 6
-read(6, "1 (systemd) S 0 1 1 0 -1 4194560"..., 1024) = 184
+read(6, "1 (init) S 0 1 1 0 -1 4219136 93"..., 1024) = 173
+read(6, "", 851)                        = 0
 close(6)                                = 0
 open("/proc/1/status", O_RDONLY)        = 6
-read(6, "Name:\tsystemd\nState:\tS (sleeping"..., 1024) = 878
+read(6, "Name:\tinit\nState:\tS (sleeping)\nT"..., 1024) = 744
+read(6, "", 280)                        = 0
 close(6)                                = 0
-stat("/proc/2", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/2", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/2/stat", O_RDONLY)          = 6
-read(6, "2 (kthreadd) S 0 0 0 0 -1 212998"..., 1024) = 149
+read(6, "2 (kthreadd) S 0 0 0 0 -1 212998"..., 1024) = 148
+read(6, "", 876)                        = 0
 close(6)                                = 0
 open("/proc/2/status", O_RDONLY)        = 6
-read(6, "Name:\tkthreadd\nState:\tS (sleepin"..., 1024) = 597
+read(6, "Name:\tkthreadd\nState:\tS (sleepin"..., 1024) = 510
+read(6, "", 514)                        = 0
 close(6)                                = 0
-stat("/proc/3", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/3", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/3/stat", O_RDONLY)          = 6
-read(6, "3 (ksoftirqd/0) S 2 0 0 0 -1 692"..., 1024) = 155
+read(6, "3 (ksoftirqd/0) S 2 0 0 0 -1 692"..., 1024) = 153
+read(6, "", 871)                        = 0
 close(6)                                = 0
 open("/proc/3/status", O_RDONLY)        = 6
-read(6, "Name:\tksoftirqd/0\nState:\tS (slee"..., 1024) = 602
+read(6, "Name:\tksoftirqd/0\nState:\tS (slee"..., 1024) = 515
+read(6, "", 509)                        = 0
 close(6)                                = 0
-stat("/proc/5", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/5", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/5/stat", O_RDONLY)          = 6
-read(6, "5 (kworker/0:0H) S 2 0 0 0 -1 69"..., 1024) = 156
+read(6, "5 (kworker/0:0H) S 2 0 0 0 -1 69"..., 1024) = 155
+read(6, "", 869)                        = 0
 close(6)                                = 0
 open("/proc/5/status", O_RDONLY)        = 6
-read(6, "Name:\tkworker/0:0H\nState:\tS (sle"..., 1024) = 599
+read(6, "Name:\tkworker/0:0H\nState:\tS (sle"..., 1024) = 513
+read(6, "", 511)                        = 0
 close(6)                                = 0
-stat("/proc/7", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/7", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/7/stat", O_RDONLY)          = 6
-read(6, "7 (rcu_sched) S 2 0 0 0 -1 21299"..., 1024) = 152
+read(6, "7 (migration/0) S 2 0 0 0 -1 692"..., 1024) = 156
+read(6, "", 868)                        = 0
 close(6)                                = 0
 open("/proc/7/status", O_RDONLY)        = 6
-read(6, "Name:\trcu_sched\nState:\tS (sleepi"..., 1024) = 600
+read(6, "Name:\tmigration/0\nState:\tS (slee"..., 1024) = 513
+read(6, "", 511)                        = 0
 close(6)                                = 0
-stat("/proc/8", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/8", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/8/stat", O_RDONLY)          = 6
-read(6, "8 (rcu_bh) S 2 0 0 0 -1 2129984 "..., 1024) = 148
+read(6, "8 (rcu_bh) S 2 0 0 0 -1 2129984 "..., 1024) = 147
+read(6, "", 877)                        = 0
 close(6)                                = 0
 open("/proc/8/status", O_RDONLY)        = 6
-read(6, "Name:\trcu_bh\nState:\tS (sleeping)"..., 1024) = 593
+read(6, "Name:\trcu_bh\nState:\tS (sleeping)"..., 1024) = 507
+read(6, "", 517)                        = 0
 close(6)                                = 0
-stat("/proc/9", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/9", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/9/stat", O_RDONLY)          = 6
-read(6, "9 (migration/0) S 2 0 0 0 -1 692"..., 1024) = 157
+read(6, "9 (rcu_sched) S 2 0 0 0 -1 21299"..., 1024) = 151
+read(6, "", 873)                        = 0
 close(6)                                = 0
 open("/proc/9/status", O_RDONLY)        = 6
-read(6, "Name:\tmigration/0\nState:\tS (slee"..., 1024) = 598
+read(6, "Name:\trcu_sched\nState:\tS (sleepi"..., 1024) = 514
+read(6, "", 510)                        = 0
 close(6)                                = 0
-stat("/proc/10", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/10", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/10/stat", O_RDONLY)         = 6
-read(6, "10 (watchdog/0) S 2 0 0 0 -1 692"..., 1024) = 158
+read(6, "10 (watchdog/0) S 2 0 0 0 -1 692"..., 1024) = 156
+read(6, "", 868)                        = 0
 close(6)                                = 0
 open("/proc/10/status", O_RDONLY)       = 6
-read(6, "Name:\twatchdog/0\nState:\tS (sleep"..., 1024) = 605
+read(6, "Name:\twatchdog/0\nState:\tS (sleep"..., 1024) = 515
+read(6, "", 509)                        = 0
 close(6)                                = 0
-stat("/proc/11", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/11", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/11/stat", O_RDONLY)         = 6
-read(6, "11 (kdevtmpfs) S 2 0 0 0 -1 2130"..., 1024) = 152
+read(6, "11 (khelper) S 2 0 0 0 -1 692388"..., 1024) = 151
+read(6, "", 873)                        = 0
 close(6)                                = 0
 open("/proc/11/status", O_RDONLY)       = 6
-read(6, "Name:\tkdevtmpfs\nState:\tS (sleepi"..., 1024) = 602
+read(6, "Name:\tkhelper\nState:\tS (sleeping"..., 1024) = 510
+read(6, "", 514)                        = 0
 close(6)                                = 0
-stat("/proc/12", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/12", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/12/stat", O_RDONLY)         = 6
-read(6, "12 (netns) S 2 0 0 0 -1 69238880"..., 1024) = 150
+read(6, "12 (kdevtmpfs) S 2 0 0 0 -1 2130"..., 1024) = 151
+read(6, "", 873)                        = 0
 close(6)                                = 0
 open("/proc/12/status", O_RDONLY)       = 6
-read(6, "Name:\tnetns\nState:\tS (sleeping)\n"..., 1024) = 596
+read(6, "Name:\tkdevtmpfs\nState:\tS (sleepi"..., 1024) = 514
+read(6, "", 510)                        = 0
 close(6)                                = 0
-stat("/proc/13", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/13", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/13/stat", O_RDONLY)         = 6
-read(6, "13 (perf) S 2 0 0 0 -1 69238880 "..., 1024) = 149
+read(6, "13 (netns) S 2 0 0 0 -1 69238880"..., 1024) = 149
+read(6, "", 875)                        = 0
 close(6)                                = 0
 open("/proc/13/status", O_RDONLY)       = 6
-read(6, "Name:\tperf\nState:\tS (sleeping)\nT"..., 1024) = 595
+read(6, "Name:\tnetns\nState:\tS (sleeping)\n"..., 1024) = 508
+read(6, "", 516)                        = 0
 close(6)                                = 0
-stat("/proc/14", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/14", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/14/stat", O_RDONLY)         = 6
-read(6, "14 (khungtaskd) S 2 0 0 0 -1 212"..., 1024) = 153
+read(6, "14 (writeback) S 2 0 0 0 -1 6923"..., 1024) = 153
+read(6, "", 871)                        = 0
 close(6)                                = 0
 open("/proc/14/status", O_RDONLY)       = 6
-read(6, "Name:\tkhungtaskd\nState:\tS (sleep"..., 1024) = 603
+read(6, "Name:\twriteback\nState:\tS (sleepi"..., 1024) = 512
+read(6, "", 512)                        = 0
 close(6)                                = 0
-stat("/proc/15", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/15", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/15/stat", O_RDONLY)         = 6
-read(6, "15 (writeback) S 2 0 0 0 -1 6923"..., 1024) = 154
+read(6, "15 (kintegrityd) S 2 0 0 0 -1 69"..., 1024) = 155
+read(6, "", 869)                        = 0
 close(6)                                = 0
 open("/proc/15/status", O_RDONLY)       = 6
-read(6, "Name:\twriteback\nState:\tS (sleepi"..., 1024) = 600
+read(6, "Name:\tkintegrityd\nState:\tS (slee"..., 1024) = 514
+read(6, "", 510)                        = 0
 close(6)                                = 0
-stat("/proc/16", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/16", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/16/stat", O_RDONLY)         = 6
-read(6, "16 (ksmd) S 2 0 0 0 -1 2097216 0"..., 1024) = 147
+read(6, "16 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 150
+read(6, "", 874)                        = 0
 close(6)                                = 0
 open("/proc/16/status", O_RDONLY)       = 6
-read(6, "Name:\tksmd\nState:\tS (sleeping)\nT"..., 1024) = 595
+read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 509
+read(6, "", 515)                        = 0
 close(6)                                = 0
-stat("/proc/17", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/17/stat", O_RDONLY)         = 6
-read(6, "17 (khugepaged) S 2 0 0 0 -1 209"..., 1024) = 155
-close(6)                                = 0
-open("/proc/17/status", O_RDONLY)       = 6
-read(6, "Name:\tkhugepaged\nState:\tS (sleep"..., 1024) = 604
-close(6)                                = 0
-stat("/proc/18", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/18", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/18/stat", O_RDONLY)         = 6
-read(6, "18 (crypto) S 2 0 0 0 -1 6923888"..., 1024) = 151
+read(6, "18 (kblockd) S 2 0 0 0 -1 692388"..., 1024) = 151
+read(6, "", 873)                        = 0
 close(6)                                = 0
 open("/proc/18/status", O_RDONLY)       = 6
-read(6, "Name:\tcrypto\nState:\tS (sleeping)"..., 1024) = 597
+read(6, "Name:\tkblockd\nState:\tS (sleeping"..., 1024) = 510
+read(6, "", 514)                        = 0
 close(6)                                = 0
-stat("/proc/19", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/19", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/19/stat", O_RDONLY)         = 6
-read(6, "19 (kintegrityd) S 2 0 0 0 -1 69"..., 1024) = 156
+read(6, "19 (ata_sff) S 2 0 0 0 -1 692388"..., 1024) = 152
+read(6, "", 872)                        = 0
 close(6)                                = 0
 open("/proc/19/status", O_RDONLY)       = 6
-read(6, "Name:\tkintegrityd\nState:\tS (slee"..., 1024) = 602
+read(6, "Name:\tata_sff\nState:\tS (sleeping"..., 1024) = 510
+read(6, "", 514)                        = 0
 close(6)                                = 0
-stat("/proc/20", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/20", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/20/stat", O_RDONLY)         = 6
-read(6, "20 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 151
+read(6, "20 (khubd) S 2 0 0 0 -1 10758390"..., 1024) = 152
+read(6, "", 872)                        = 0
 close(6)                                = 0
 open("/proc/20/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
+read(6, "Name:\tkhubd\nState:\tS (sleeping)\n"..., 1024) = 509
+read(6, "", 515)                        = 0
 close(6)                                = 0
-stat("/proc/21", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/21", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/21/stat", O_RDONLY)         = 6
-read(6, "21 (kblockd) S 2 0 0 0 -1 692388"..., 1024) = 152
+read(6, "21 (md) S 2 0 0 0 -1 69238880 0 "..., 1024) = 147
+read(6, "", 877)                        = 0
 close(6)                                = 0
 open("/proc/21/status", O_RDONLY)       = 6
-read(6, "Name:\tkblockd\nState:\tS (sleeping"..., 1024) = 598
+read(6, "Name:\tmd\nState:\tS (sleeping)\nTgi"..., 1024) = 505
+read(6, "", 519)                        = 0
 close(6)                                = 0
-stat("/proc/22", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/22", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/22/stat", O_RDONLY)         = 6
-read(6, "22 (ata_sff) S 2 0 0 0 -1 692388"..., 1024) = 153
+read(6, "22 (devfreq_wq) S 2 0 0 0 -1 692"..., 1024) = 155
+read(6, "", 869)                        = 0
 close(6)                                = 0
 open("/proc/22/status", O_RDONLY)       = 6
-read(6, "Name:\tata_sff\nState:\tS (sleeping"..., 1024) = 598
+read(6, "Name:\tdevfreq_wq\nState:\tS (sleep"..., 1024) = 513
+read(6, "", 511)                        = 0
 close(6)                                = 0
-stat("/proc/23", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/23", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/23/stat", O_RDONLY)         = 6
-read(6, "23 (md) S 2 0 0 0 -1 69238880 0 "..., 1024) = 148
+read(6, "23 (kworker/0:1) S 2 0 0 0 -1 69"..., 1024) = 157
+read(6, "", 867)                        = 0
 close(6)                                = 0
 open("/proc/23/status", O_RDONLY)       = 6
-read(6, "Name:\tmd\nState:\tS (sleeping)\nTgi"..., 1024) = 593
+read(6, "Name:\tkworker/0:1\nState:\tS (slee"..., 1024) = 519
+read(6, "", 505)                        = 0
 close(6)                                = 0
-stat("/proc/24", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/24/stat", O_RDONLY)         = 6
-read(6, "24 (devfreq_wq) S 2 0 0 0 -1 692"..., 1024) = 156
+stat64("/proc/25", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/25/stat", O_RDONLY)         = 6
+read(6, "25 (khungtaskd) S 2 0 0 0 -1 212"..., 1024) = 153
+read(6, "", 871)                        = 0
 close(6)                                = 0
-open("/proc/24/status", O_RDONLY)       = 6
-read(6, "Name:\tdevfreq_wq\nState:\tS (sleep"..., 1024) = 601
+open("/proc/25/status", O_RDONLY)       = 6
+read(6, "Name:\tkhungtaskd\nState:\tS (sleep"..., 1024) = 514
+read(6, "", 510)                        = 0
 close(6)                                = 0
-stat("/proc/28", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/26", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/26/stat", O_RDONLY)         = 6
+read(6, "26 (kswapd0) S 2 0 0 0 -1 107500"..., 1024) = 151
+read(6, "", 873)                        = 0
+close(6)                                = 0
+open("/proc/26/status", O_RDONLY)       = 6
+read(6, "Name:\tkswapd0\nState:\tS (sleeping"..., 1024) = 510
+read(6, "", 514)                        = 0
+close(6)                                = 0
+stat64("/proc/27", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/27/stat", O_RDONLY)         = 6
+read(6, "27 (ksmd) S 2 0 0 0 -1 107583904"..., 1024) = 150
+read(6, "", 874)                        = 0
+close(6)                                = 0
+open("/proc/27/status", O_RDONLY)       = 6
+read(6, "Name:\tksmd\nState:\tS (sleeping)\nT"..., 1024) = 507
+read(6, "", 517)                        = 0
+close(6)                                = 0
+stat64("/proc/28", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/28/stat", O_RDONLY)         = 6
-read(6, "28 (kswapd0) S 2 0 0 0 -1 107500"..., 1024) = 152
+read(6, "28 (khugepaged) S 2 0 0 0 -1 107"..., 1024) = 157
+read(6, "", 867)                        = 0
 close(6)                                = 0
 open("/proc/28/status", O_RDONLY)       = 6
-read(6, "Name:\tkswapd0\nState:\tS (sleeping"..., 1024) = 598
+read(6, "Name:\tkhugepaged\nState:\tS (sleep"..., 1024) = 513
+read(6, "", 511)                        = 0
 close(6)                                = 0
-stat("/proc/29", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/29", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/29/stat", O_RDONLY)         = 6
-read(6, "29 (vmstat) S 2 0 0 0 -1 6923888"..., 1024) = 152
+read(6, "29 (fsnotify_mark) S 2 0 0 0 -1 "..., 1024) = 156
+read(6, "", 868)                        = 0
 close(6)                                = 0
 open("/proc/29/status", O_RDONLY)       = 6
-read(6, "Name:\tvmstat\nState:\tS (sleeping)"..., 1024) = 597
+read(6, "Name:\tfsnotify_mark\nState:\tS (sl"..., 1024) = 517
+read(6, "", 507)                        = 0
 close(6)                                = 0
-stat("/proc/30", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/30", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/30/stat", O_RDONLY)         = 6
-read(6, "30 (fsnotify_mark) S 2 0 0 0 -1 "..., 1024) = 157
+read(6, "30 (ecryptfs-kthrea) S 2 0 0 0 -"..., 1024) = 161
+read(6, "", 863)                        = 0
 close(6)                                = 0
 open("/proc/30/status", O_RDONLY)       = 6
-read(6, "Name:\tfsnotify_mark\nState:\tS (sl"..., 1024) = 605
+read(6, "Name:\tecryptfs-kthrea\nState:\tS ("..., 1024) = 518
+read(6, "", 506)                        = 0
 close(6)                                = 0
-stat("/proc/31", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/31", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/31/stat", O_RDONLY)         = 6
-read(6, "31 (ecryptfs-kthrea) S 2 0 0 0 -"..., 1024) = 159
+read(6, "31 (crypto) S 2 0 0 0 -1 6923888"..., 1024) = 151
+read(6, "", 873)                        = 0
 close(6)                                = 0
 open("/proc/31/status", O_RDONLY)       = 6
-read(6, "Name:\tecryptfs-kthrea\nState:\tS ("..., 1024) = 606
+read(6, "Name:\tcrypto\nState:\tS (sleeping)"..., 1024) = 509
+read(6, "", 515)                        = 0
 close(6)                                = 0
-stat("/proc/47", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/43", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/43/stat", O_RDONLY)         = 6
+read(6, "43 (kthrotld) S 2 0 0 0 -1 69238"..., 1024) = 153
+read(6, "", 871)                        = 0
+close(6)                                = 0
+open("/proc/43/status", O_RDONLY)       = 6
+read(6, "Name:\tkthrotld\nState:\tS (sleepin"..., 1024) = 511
+read(6, "", 513)                        = 0
+close(6)                                = 0
+stat64("/proc/45", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/45/stat", O_RDONLY)         = 6
+read(6, "45 (kworker/u2:1) S 2 0 0 0 -1 6"..., 1024) = 158
+read(6, "", 866)                        = 0
+close(6)                                = 0
+open("/proc/45/status", O_RDONLY)       = 6
+read(6, "Name:\tkworker/u2:1\nState:\tS (sle"..., 1024) = 519
+read(6, "", 505)                        = 0
+close(6)                                = 0
+stat64("/proc/46", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/46/stat", O_RDONLY)         = 6
+read(6, "46 (scsi_eh_0) S 2 0 0 0 -1 2129"..., 1024) = 152
+read(6, "", 872)                        = 0
+close(6)                                = 0
+open("/proc/46/status", O_RDONLY)       = 6
+read(6, "Name:\tscsi_eh_0\nState:\tS (sleepi"..., 1024) = 512
+read(6, "", 512)                        = 0
+close(6)                                = 0
+stat64("/proc/47", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/47/stat", O_RDONLY)         = 6
-read(6, "47 (kthrotld) S 2 0 0 0 -1 69238"..., 1024) = 154
+read(6, "47 (scsi_eh_1) S 2 0 0 0 -1 2129"..., 1024) = 152
+read(6, "", 872)                        = 0
 close(6)                                = 0
 open("/proc/47/status", O_RDONLY)       = 6
-read(6, "Name:\tkthrotld\nState:\tS (sleepin"..., 1024) = 599
+read(6, "Name:\tscsi_eh_1\nState:\tS (sleepi"..., 1024) = 513
+read(6, "", 511)                        = 0
 close(6)                                = 0
-stat("/proc/48", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/48", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/48/stat", O_RDONLY)         = 6
-read(6, "48 (acpi_thermal_pm) S 2 0 0 0 -"..., 1024) = 161
+read(6, "48 (kworker/u2:2) S 2 0 0 0 -1 6"..., 1024) = 156
+read(6, "", 868)                        = 0
 close(6)                                = 0
 open("/proc/48/status", O_RDONLY)       = 6
-read(6, "Name:\tacpi_thermal_pm\nState:\tS ("..., 1024) = 606
+read(6, "Name:\tkworker/u2:2\nState:\tS (sle"..., 1024) = 516
+read(6, "", 508)                        = 0
 close(6)                                = 0
-stat("/proc/49", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/49/stat", O_RDONLY)         = 6
-read(6, "49 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/49/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/50", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/50", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/50/stat", O_RDONLY)         = 6
-read(6, "50 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
+read(6, "50 (dm_bufio_cache) S 2 0 0 0 -1"..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
 open("/proc/50/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
+read(6, "Name:\tdm_bufio_cache\nState:\tS (s"..., 1024) = 517
+read(6, "", 507)                        = 0
 close(6)                                = 0
-stat("/proc/51", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/51/stat", O_RDONLY)         = 6
-read(6, "51 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/51/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/52", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/52/stat", O_RDONLY)         = 6
-read(6, "52 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/52/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/53", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/53/stat", O_RDONLY)         = 6
-read(6, "53 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/53/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/54", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/54/stat", O_RDONLY)         = 6
-read(6, "54 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/54/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/55", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/55/stat", O_RDONLY)         = 6
-read(6, "55 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/55/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/56", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/56/stat", O_RDONLY)         = 6
-read(6, "56 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/56/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/57", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/57/stat", O_RDONLY)         = 6
-read(6, "57 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/57/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/58", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/58/stat", O_RDONLY)         = 6
-read(6, "58 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/58/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/59", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/59/stat", O_RDONLY)         = 6
-read(6, "59 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/59/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/60", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/60/stat", O_RDONLY)         = 6
-read(6, "60 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/60/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/61", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/61/stat", O_RDONLY)         = 6
-read(6, "61 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/61/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/62", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/62/stat", O_RDONLY)         = 6
-read(6, "62 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/62/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/63", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/63/stat", O_RDONLY)         = 6
-read(6, "63 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/63/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/64", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/64/stat", O_RDONLY)         = 6
-read(6, "64 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/64/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/65", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/65/stat", O_RDONLY)         = 6
-read(6, "65 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/65/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/66", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/66/stat", O_RDONLY)         = 6
-read(6, "66 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/66/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/67", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/67/stat", O_RDONLY)         = 6
-read(6, "67 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/67/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/68", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/68/stat", O_RDONLY)         = 6
-read(6, "68 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/68/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/69", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/69/stat", O_RDONLY)         = 6
-read(6, "69 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
-close(6)                                = 0
-open("/proc/69/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
-close(6)                                = 0
-stat("/proc/70", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/70", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/70/stat", O_RDONLY)         = 6
-read(6, "70 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
+read(6, "70 (deferwq) S 2 0 0 0 -1 692388"..., 1024) = 152
+read(6, "", 872)                        = 0
 close(6)                                = 0
 open("/proc/70/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
+read(6, "Name:\tdeferwq\nState:\tS (sleeping"..., 1024) = 510
+read(6, "", 514)                        = 0
 close(6)                                = 0
-stat("/proc/71", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/71", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/71/stat", O_RDONLY)         = 6
-read(6, "71 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
+read(6, "71 (charger_manager) S 2 0 0 0 -"..., 1024) = 160
+read(6, "", 864)                        = 0
 close(6)                                = 0
 open("/proc/71/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
+read(6, "Name:\tcharger_manager\nState:\tS ("..., 1024) = 518
+read(6, "", 506)                        = 0
 close(6)                                = 0
-stat("/proc/72", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/72/stat", O_RDONLY)         = 6
-read(6, "72 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
+stat64("/proc/194", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/194/stat", O_RDONLY)        = 6
+read(6, "194 (scsi_eh_2) S 2 0 0 0 -1 212"..., 1024) = 153
+read(6, "", 871)                        = 0
 close(6)                                = 0
-open("/proc/72/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
+open("/proc/194/status", O_RDONLY)      = 6
+read(6, "Name:\tscsi_eh_2\nState:\tS (sleepi"..., 1024) = 515
+read(6, "", 509)                        = 0
 close(6)                                = 0
-stat("/proc/73", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/73/stat", O_RDONLY)         = 6
-read(6, "73 (scsi_eh_0) S 2 0 0 0 -1 2129"..., 1024) = 153
+stat64("/proc/211", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/211/stat", O_RDONLY)        = 6
+read(6, "211 (kworker/u3:1) S 2 0 0 0 -1 "..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
-open("/proc/73/status", O_RDONLY)       = 6
-read(6, "Name:\tscsi_eh_0\nState:\tS (sleepi"..., 1024) = 600
+open("/proc/211/status", O_RDONLY)      = 6
+read(6, "Name:\tkworker/u3:1\nState:\tS (sle"..., 1024) = 519
+read(6, "", 505)                        = 0
 close(6)                                = 0
-stat("/proc/74", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/74/stat", O_RDONLY)         = 6
-read(6, "74 (scsi_tmf_0) S 2 0 0 0 -1 692"..., 1024) = 156
+stat64("/proc/212", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/212/stat", O_RDONLY)        = 6
+read(6, "212 (jbd2/sda1-8) S 2 0 0 0 -1 2"..., 1024) = 158
+read(6, "", 866)                        = 0
 close(6)                                = 0
-open("/proc/74/status", O_RDONLY)       = 6
-read(6, "Name:\tscsi_tmf_0\nState:\tS (sleep"..., 1024) = 601
+open("/proc/212/status", O_RDONLY)      = 6
+read(6, "Name:\tjbd2/sda1-8\nState:\tS (slee"..., 1024) = 520
+read(6, "", 504)                        = 0
 close(6)                                = 0
-stat("/proc/75", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/75/stat", O_RDONLY)         = 6
-read(6, "75 (scsi_eh_1) S 2 0 0 0 -1 2129"..., 1024) = 153
+stat64("/proc/213", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/213/stat", O_RDONLY)        = 6
+read(6, "213 (ext4-rsv-conver) S 2 0 0 0 "..., 1024) = 162
+read(6, "", 862)                        = 0
 close(6)                                = 0
-open("/proc/75/status", O_RDONLY)       = 6
-read(6, "Name:\tscsi_eh_1\nState:\tS (sleepi"..., 1024) = 601
+open("/proc/213/status", O_RDONLY)      = 6
+read(6, "Name:\text4-rsv-conver\nState:\tS ("..., 1024) = 520
+read(6, "", 504)                        = 0
 close(6)                                = 0
-stat("/proc/76", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/76/stat", O_RDONLY)         = 6
-read(6, "76 (scsi_tmf_1) S 2 0 0 0 -1 692"..., 1024) = 156
+stat64("/proc/214", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/214/stat", O_RDONLY)        = 6
+read(6, "214 (ext4-unrsv-conv) S 2 0 0 0 "..., 1024) = 162
+read(6, "", 862)                        = 0
 close(6)                                = 0
-open("/proc/76/status", O_RDONLY)       = 6
-read(6, "Name:\tscsi_tmf_1\nState:\tS (sleep"..., 1024) = 601
+open("/proc/214/status", O_RDONLY)      = 6
+read(6, "Name:\text4-unrsv-conv\nState:\tS ("..., 1024) = 520
+read(6, "", 504)                        = 0
 close(6)                                = 0
-stat("/proc/82", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/82/stat", O_RDONLY)         = 6
-read(6, "82 (ipv6_addrconf) S 2 0 0 0 -1 "..., 1024) = 159
+stat64("/proc/308", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/308/stat", O_RDONLY)        = 6
+read(6, "308 (upstart-udev-br) S 1 306 30"..., 1024) = 169
+read(6, "", 855)                        = 0
 close(6)                                = 0
-open("/proc/82/status", O_RDONLY)       = 6
-read(6, "Name:\tipv6_addrconf\nState:\tS (sl"..., 1024) = 604
+open("/proc/308/status", O_RDONLY)      = 6
+read(6, "Name:\tupstart-udev-br\nState:\tS ("..., 1024) = 755
+read(6, "", 269)                        = 0
 close(6)                                = 0
-stat("/proc/95", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/95/stat", O_RDONLY)         = 6
-read(6, "95 (deferwq) S 2 0 0 0 -1 692388"..., 1024) = 153
+stat64("/proc/311", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/311/stat", O_RDONLY)        = 6
+read(6, "311 (udevd) S 1 311 311 0 -1 421"..., 1024) = 171
+read(6, "", 853)                        = 0
 close(6)                                = 0
-open("/proc/95/status", O_RDONLY)       = 6
-read(6, "Name:\tdeferwq\nState:\tS (sleeping"..., 1024) = 598
+open("/proc/311/status", O_RDONLY)      = 6
+read(6, "Name:\tudevd\nState:\tS (sleeping)\n"..., 1024) = 746
+read(6, "", 278)                        = 0
 close(6)                                = 0
-stat("/proc/96", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/96/stat", O_RDONLY)         = 6
-read(6, "96 (charger_manager) S 2 0 0 0 -"..., 1024) = 161
+stat64("/proc/414", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/414/stat", O_RDONLY)        = 6
+read(6, "414 (rsyslogd) S 1 412 412 0 -1 "..., 1024) = 172
+read(6, "", 852)                        = 0
 close(6)                                = 0
-open("/proc/96/status", O_RDONLY)       = 6
-read(6, "Name:\tcharger_manager\nState:\tS ("..., 1024) = 606
+open("/proc/414/status", O_RDONLY)      = 6
+read(6, "Name:\trsyslogd\nState:\tS (sleepin"..., 1024) = 762
+read(6, "", 262)                        = 0
 close(6)                                = 0
-stat("/proc/97", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/97/stat", O_RDONLY)         = 6
-read(6, "97 (bioset) S 2 0 0 0 -1 6923888"..., 1024) = 152
+stat64("/proc/421", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/421/stat", O_RDONLY)        = 6
+read(6, "421 (dbus-daemon) S 1 421 421 0 "..., 1024) = 170
+read(6, "", 854)                        = 0
 close(6)                                = 0
-open("/proc/97/status", O_RDONLY)       = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 597
+open("/proc/421/status", O_RDONLY)      = 6
+read(6, "Name:\tdbus-daemon\nState:\tS (slee"..., 1024) = 771
+read(6, "", 253)                        = 0
 close(6)                                = 0
-stat("/proc/204", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/204/stat", O_RDONLY)        = 6
-read(6, "204 (scsi_eh_2) S 2 0 0 0 -1 212"..., 1024) = 154
+stat64("/proc/440", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/440/stat", O_RDONLY)        = 6
+read(6, "440 (bluetoothd) S 1 440 440 0 -"..., 1024) = 164
+read(6, "", 860)                        = 0
 close(6)                                = 0
-open("/proc/204/status", O_RDONLY)      = 6
-read(6, "Name:\tscsi_eh_2\nState:\tS (sleepi"..., 1024) = 605
+open("/proc/440/status", O_RDONLY)      = 6
+read(6, "Name:\tbluetoothd\nState:\tS (sleep"..., 1024) = 748
+read(6, "", 276)                        = 0
 close(6)                                = 0
-stat("/proc/207", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/207/stat", O_RDONLY)        = 6
-read(6, "207 (scsi_tmf_2) S 2 0 0 0 -1 69"..., 1024) = 157
+stat64("/proc/446", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/446/stat", O_RDONLY)        = 6
+read(6, "446 (avahi-daemon) S 1 445 445 0"..., 1024) = 169
+read(6, "", 855)                        = 0
 close(6)                                = 0
-open("/proc/207/status", O_RDONLY)      = 6
-read(6, "Name:\tscsi_tmf_2\nState:\tS (sleep"..., 1024) = 605
+open("/proc/446/status", O_RDONLY)      = 6
+read(6, "Name:\tavahi-daemon\nState:\tS (sle"..., 1024) = 771
+read(6, "", 253)                        = 0
 close(6)                                = 0
-stat("/proc/226", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/226/stat", O_RDONLY)        = 6
-read(6, "226 (kpsmoused) S 2 0 0 0 -1 692"..., 1024) = 156
+stat64("/proc/447", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/447/stat", O_RDONLY)        = 6
+read(6, "447 (avahi-daemon) S 446 445 445"..., 1024) = 166
+read(6, "", 858)                        = 0
 close(6)                                = 0
-open("/proc/226/status", O_RDONLY)      = 6
-read(6, "Name:\tkpsmoused\nState:\tS (sleepi"..., 1024) = 604
+open("/proc/447/status", O_RDONLY)      = 6
+read(6, "Name:\tavahi-daemon\nState:\tS (sle"..., 1024) = 771
+read(6, "", 253)                        = 0
 close(6)                                = 0
-stat("/proc/244", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/244/stat", O_RDONLY)        = 6
-read(6, "244 (kworker/0:1H) S 2 0 0 0 -1 "..., 1024) = 160
+stat64("/proc/487", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/487/stat", O_RDONLY)        = 6
+read(6, "487 (cupsd) S 1 487 487 0 -1 421"..., 1024) = 167
+read(6, "", 857)                        = 0
 close(6)                                = 0
-open("/proc/244/status", O_RDONLY)      = 6
-read(6, "Name:\tkworker/0:1H\nState:\tS (sle"..., 1024) = 610
+open("/proc/487/status", O_RDONLY)      = 6
+read(6, "Name:\tcupsd\nState:\tS (sleeping)\n"..., 1024) = 744
+read(6, "", 280)                        = 0
 close(6)                                = 0
-stat("/proc/472", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/472/stat", O_RDONLY)        = 6
-read(6, "472 (bioset) S 2 0 0 0 -1 692388"..., 1024) = 154
+stat64("/proc/494", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/494/stat", O_RDONLY)        = 6
+read(6, "494 (krfcommd) S 2 0 0 0 -1 2130"..., 1024) = 155
+read(6, "", 869)                        = 0
 close(6)                                = 0
-open("/proc/472/status", O_RDONLY)      = 6
-read(6, "Name:\tbioset\nState:\tS (sleeping)"..., 1024) = 601
+open("/proc/494/status", O_RDONLY)      = 6
+read(6, "Name:\tkrfcommd\nState:\tS (sleepin"..., 1024) = 513
+read(6, "", 511)                        = 0
 close(6)                                = 0
-stat("/proc/539", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/539/stat", O_RDONLY)        = 6
-read(6, "539 (jbd2/sda1-8) S 2 0 0 0 -1 2"..., 1024) = 160
+stat64("/proc/500", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/500/stat", O_RDONLY)        = 6
+read(6, "500 (iprt-VBoxWQueue) S 2 0 0 0 "..., 1024) = 162
+read(6, "", 862)                        = 0
 close(6)                                = 0
-open("/proc/539/status", O_RDONLY)      = 6
-read(6, "Name:\tjbd2/sda1-8\nState:\tS (slee"..., 1024) = 610
+open("/proc/500/status", O_RDONLY)      = 6
+read(6, "Name:\tiprt-VBoxWQueue\nState:\tS ("..., 1024) = 520
+read(6, "", 504)                        = 0
 close(6)                                = 0
-stat("/proc/540", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/540/stat", O_RDONLY)        = 6
-read(6, "540 (ext4-rsv-conver) S 2 0 0 0 "..., 1024) = 163
+stat64("/proc/615", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/615/stat", O_RDONLY)        = 6
+read(6, "615 (udevd) S 311 311 311 0 -1 4"..., 1024) = 168
+read(6, "", 856)                        = 0
 close(6)                                = 0
-open("/proc/540/status", O_RDONLY)      = 6
-read(6, "Name:\text4-rsv-conver\nState:\tS ("..., 1024) = 610
+open("/proc/615/status", O_RDONLY)      = 6
+read(6, "Name:\tudevd\nState:\tS (sleeping)\n"..., 1024) = 745
+read(6, "", 279)                        = 0
 close(6)                                = 0
-stat("/proc/575", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/575/stat", O_RDONLY)        = 6
-read(6, "575 (kauditd) S 2 0 0 0 -1 20972"..., 1024) = 153
+stat64("/proc/637", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/637/stat", O_RDONLY)        = 6
+read(6, "637 (kpsmoused) S 2 0 0 0 -1 692"..., 1024) = 156
+read(6, "", 868)                        = 0
 close(6)                                = 0
-open("/proc/575/status", O_RDONLY)      = 6
-read(6, "Name:\tkauditd\nState:\tS (sleeping"..., 1024) = 602
+open("/proc/637/status", O_RDONLY)      = 6
+read(6, "Name:\tkpsmoused\nState:\tS (sleepi"..., 1024) = 514
+read(6, "", 510)                        = 0
 close(6)                                = 0
-stat("/proc/583", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/583/stat", O_RDONLY)        = 6
-read(6, "583 (systemd-journal) S 1 583 58"..., 1024) = 177
+stat64("/proc/639", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/639/stat", O_RDONLY)        = 6
+read(6, "639 (kworker/0:2) S 2 0 0 0 -1 6"..., 1024) = 157
+read(6, "", 867)                        = 0
 close(6)                                = 0
-open("/proc/583/status", O_RDONLY)      = 6
-read(6, "Name:\tsystemd-journal\nState:\tS ("..., 1024) = 896
+open("/proc/639/status", O_RDONLY)      = 6
+read(6, "Name:\tkworker/0:2\nState:\tS (slee"..., 1024) = 518
+read(6, "", 506)                        = 0
 close(6)                                = 0
-stat("/proc/609", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/609/stat", O_RDONLY)        = 6
-read(6, "609 (systemd-udevd) S 1 609 609 "..., 1024) = 182
+stat64("/proc/643", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/643/stat", O_RDONLY)        = 6
+read(6, "643 (udevd) S 311 311 311 0 -1 4"..., 1024) = 166
+read(6, "", 858)                        = 0
 close(6)                                = 0
-open("/proc/609/status", O_RDONLY)      = 6
-read(6, "Name:\tsystemd-udevd\nState:\tS (sl"..., 1024) = 893
+open("/proc/643/status", O_RDONLY)      = 6
+read(6, "Name:\tudevd\nState:\tS (sleeping)\n"..., 1024) = 744
+read(6, "", 280)                        = 0
 close(6)                                = 0
-stat("/proc/800", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/800/stat", O_RDONLY)        = 6
-read(6, "800 (systemd-timesyn) S 1 800 80"..., 1024) = 175
+stat64("/proc/681", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/681/stat", O_RDONLY)        = 6
+read(6, "681 (upstart-socket-) S 1 678 67"..., 1024) = 168
+read(6, "", 856)                        = 0
 close(6)                                = 0
-open("/proc/800/status", O_RDONLY)      = 6
-read(6, "Name:\tsystemd-timesyn\nState:\tS ("..., 1024) = 909
+open("/proc/681/status", O_RDONLY)      = 6
+read(6, "Name:\tupstart-socket-\nState:\tS ("..., 1024) = 754
+read(6, "", 270)                        = 0
 close(6)                                = 0
-stat("/proc/1176", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1176/stat", O_RDONLY)       = 6
-read(6, "1176 (iprt-VBoxWQueue) S 2 0 0 0"..., 1024) = 164
+stat64("/proc/697", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/697/stat", O_RDONLY)        = 6
+read(6, "697 (modem-manager) S 1 697 697 "..., 1024) = 168
+read(6, "", 856)                        = 0
 close(6)                                = 0
-open("/proc/1176/status", O_RDONLY)     = 6
-read(6, "Name:\tiprt-VBoxWQueue\nState:\tS ("..., 1024) = 614
+open("/proc/697/status", O_RDONLY)      = 6
+read(6, "Name:\tmodem-manager\nState:\tS (sl"..., 1024) = 753
+read(6, "", 271)                        = 0
 close(6)                                = 0
-stat("/proc/1217", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1217/stat", O_RDONLY)       = 6
-read(6, "1217 (ttm_swap) S 2 0 0 0 -1 692"..., 1024) = 157
+stat64("/proc/712", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/712/stat", O_RDONLY)        = 6
+read(6, "712 (NetworkManager) S 1 712 712"..., 1024) = 179
+read(6, "", 845)                        = 0
 close(6)                                = 0
-open("/proc/1217/status", O_RDONLY)     = 6
-read(6, "Name:\tttm_swap\nState:\tS (sleepin"..., 1024) = 607
+open("/proc/712/status", O_RDONLY)      = 6
+read(6, "Name:\tNetworkManager\nState:\tS (s"..., 1024) = 755
+read(6, "", 269)                        = 0
 close(6)                                = 0
-stat("/proc/1347", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1347/stat", O_RDONLY)       = 6
-read(6, "1347 (dbus-daemon) S 1 1347 1347"..., 1024) = 178
+stat64("/proc/731", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/731/stat", O_RDONLY)        = 6
+read(6, "731 (polkitd) S 1 421 421 0 -1 4"..., 1024) = 164
+read(6, "", 860)                        = 0
 close(6)                                = 0
-open("/proc/1347/status", O_RDONLY)     = 6
-read(6, "Name:\tdbus-daemon\nState:\tS (slee"..., 1024) = 915
+open("/proc/731/status", O_RDONLY)      = 6
+read(6, "Name:\tpolkitd\nState:\tS (sleeping"..., 1024) = 750
+read(6, "", 274)                        = 0
 close(6)                                = 0
-stat("/proc/1375", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1375/stat", O_RDONLY)       = 6
-read(6, "1375 (NetworkManager) S 1 1375 1"..., 1024) = 189
+stat64("/proc/764", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/764/stat", O_RDONLY)        = 6
+read(6, "764 (dhclient) S 712 764 712 0 -"..., 1024) = 165
+read(6, "", 859)                        = 0
 close(6)                                = 0
-open("/proc/1375/status", O_RDONLY)     = 6
-read(6, "Name:\tNetworkManager\nState:\tS (s"..., 1024) = 901
+open("/proc/764/status", O_RDONLY)      = 6
+read(6, "Name:\tdhclient\nState:\tS (sleepin"..., 1024) = 749
+read(6, "", 275)                        = 0
 close(6)                                = 0
-stat("/proc/1381", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1381/stat", O_RDONLY)       = 6
-read(6, "1381 (avahi-daemon) S 1 1381 138"..., 1024) = 175
+stat64("/proc/836", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/836/stat", O_RDONLY)        = 6
+read(6, "836 (getty) S 1 836 836 1028 836"..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
-open("/proc/1381/status", O_RDONLY)     = 6
-read(6, "Name:\tavahi-daemon\nState:\tS (sle"..., 1024) = 917
+open("/proc/836/status", O_RDONLY)      = 6
+read(6, "Name:\tgetty\nState:\tS (sleeping)\n"..., 1024) = 742
+read(6, "", 282)                        = 0
 close(6)                                = 0
-stat("/proc/1383", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1383/stat", O_RDONLY)       = 6
-read(6, "1383 (whoopsie) S 1 1383 1383 0 "..., 1024) = 174
+stat64("/proc/842", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/842/stat", O_RDONLY)        = 6
+read(6, "842 (getty) S 1 842 842 1029 842"..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
-open("/proc/1383/status", O_RDONLY)     = 6
-read(6, "Name:\twhoopsie\nState:\tS (sleepin"..., 1024) = 914
+open("/proc/842/status", O_RDONLY)      = 6
+read(6, "Name:\tgetty\nState:\tS (sleeping)\n"..., 1024) = 742
+read(6, "", 282)                        = 0
 close(6)                                = 0
-stat("/proc/1386", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1386/stat", O_RDONLY)       = 6
-read(6, "1386 (rsyslogd) S 1 1386 1386 0 "..., 1024) = 177
+stat64("/proc/851", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/851/stat", O_RDONLY)        = 6
+read(6, "851 (getty) S 1 851 851 1026 851"..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
-open("/proc/1386/status", O_RDONLY)     = 6
-read(6, "Name:\trsyslogd\nState:\tS (sleepin"..., 1024) = 913
+open("/proc/851/status", O_RDONLY)      = 6
+read(6, "Name:\tgetty\nState:\tS (sleeping)\n"..., 1024) = 743
+read(6, "", 281)                        = 0
 close(6)                                = 0
-stat("/proc/1387", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1387/stat", O_RDONLY)       = 6
-read(6, "1387 (avahi-daemon) S 1381 1381 "..., 1024) = 171
+stat64("/proc/852", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/852/stat", O_RDONLY)        = 6
+read(6, "852 (getty) S 1 852 852 1027 852"..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
-open("/proc/1387/status", O_RDONLY)     = 6
-read(6, "Name:\tavahi-daemon\nState:\tS (sle"..., 1024) = 917
+open("/proc/852/status", O_RDONLY)      = 6
+read(6, "Name:\tgetty\nState:\tS (sleeping)\n"..., 1024) = 743
+read(6, "", 281)                        = 0
 close(6)                                = 0
-stat("/proc/1388", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1388/stat", O_RDONLY)       = 6
-read(6, "1388 (accounts-daemon) S 1 1388 "..., 1024) = 185
+stat64("/proc/854", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/854/stat", O_RDONLY)        = 6
+read(6, "854 (getty) S 1 854 854 1030 854"..., 1024) = 159
+read(6, "", 865)                        = 0
 close(6)                                = 0
-open("/proc/1388/status", O_RDONLY)     = 6
-read(6, "Name:\taccounts-daemon\nState:\tS ("..., 1024) = 900
+open("/proc/854/status", O_RDONLY)      = 6
+read(6, "Name:\tgetty\nState:\tS (sleeping)\n"..., 1024) = 743
+read(6, "", 281)                        = 0
 close(6)                                = 0
-stat("/proc/1411", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1411/stat", O_RDONLY)       = 6
-read(6, "1411 (systemd-logind) S 1 1411 1"..., 1024) = 172
+stat64("/proc/873", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/873/stat", O_RDONLY)        = 6
+read(6, "873 (acpid) S 1 873 873 0 -1 421"..., 1024) = 162
+read(6, "", 862)                        = 0
 close(6)                                = 0
-open("/proc/1411/status", O_RDONLY)     = 6
-read(6, "Name:\tsystemd-logind\nState:\tS (s"..., 1024) = 898
+open("/proc/873/status", O_RDONLY)      = 6
+read(6, "Name:\tacpid\nState:\tS (sleeping)\n"..., 1024) = 744
+read(6, "", 280)                        = 0
 close(6)                                = 0
-stat("/proc/1429", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/874", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/874/stat", O_RDONLY)        = 6
+read(6, "874 (cron) S 1 874 874 0 -1 1077"..., 1024) = 163
+read(6, "", 861)                        = 0
+close(6)                                = 0
+open("/proc/874/status", O_RDONLY)      = 6
+read(6, "Name:\tcron\nState:\tS (sleeping)\nT"..., 1024) = 742
+read(6, "", 282)                        = 0
+close(6)                                = 0
+stat64("/proc/875", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/875/stat", O_RDONLY)        = 6
+read(6, "875 (atd) S 1 875 875 0 -1 10779"..., 1024) = 158
+read(6, "", 866)                        = 0
+close(6)                                = 0
+open("/proc/875/status", O_RDONLY)      = 6
+read(6, "Name:\tatd\nState:\tS (sleeping)\nTg"..., 1024) = 740
+read(6, "", 284)                        = 0
+close(6)                                = 0
+stat64("/proc/877", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/877/stat", O_RDONLY)        = 6
+read(6, "877 (whoopsie) S 1 877 877 0 -1 "..., 1024) = 168
+read(6, "", 856)                        = 0
+close(6)                                = 0
+open("/proc/877/status", O_RDONLY)      = 6
+read(6, "Name:\twhoopsie\nState:\tS (sleepin"..., 1024) = 767
+read(6, "", 257)                        = 0
+close(6)                                = 0
+stat64("/proc/880", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/880/stat", O_RDONLY)        = 6
+read(6, "880 (lightdm) S 1 880 880 0 -1 4"..., 1024) = 170
+read(6, "", 854)                        = 0
+close(6)                                = 0
+open("/proc/880/status", O_RDONLY)      = 6
+read(6, "Name:\tlightdm\nState:\tS (sleeping"..., 1024) = 747
+read(6, "", 277)                        = 0
+close(6)                                = 0
+stat64("/proc/899", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/899/stat", O_RDONLY)        = 6
+read(6, "899 (Xorg) S 880 899 899 1031 89"..., 1024) = 186
+read(6, "", 838)                        = 0
+close(6)                                = 0
+open("/proc/899/status", O_RDONLY)      = 6
+read(6, "Name:\tXorg\nState:\tS (sleeping)\nT"..., 1024) = 752
+read(6, "", 272)                        = 0
+close(6)                                = 0
+stat64("/proc/984", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/984/stat", O_RDONLY)        = 6
+read(6, "984 (accounts-daemon) S 1 421 42"..., 1024) = 176
+read(6, "", 848)                        = 0
+close(6)                                = 0
+open("/proc/984/status", O_RDONLY)      = 6
+read(6, "Name:\taccounts-daemon\nState:\tS ("..., 1024) = 757
+read(6, "", 267)                        = 0
+close(6)                                = 0
+stat64("/proc/1008", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1008/stat", O_RDONLY)       = 6
+read(6, "1008 (console-kit-dae) S 1 421 4"..., 1024) = 180
+read(6, "", 844)                        = 0
+close(6)                                = 0
+open("/proc/1008/status", O_RDONLY)     = 6
+read(6, "Name:\tconsole-kit-dae\nState:\tS ("..., 1024) = 761
+read(6, "", 263)                        = 0
+close(6)                                = 0
+stat64("/proc/1111", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1111/stat", O_RDONLY)       = 6
+read(6, "1111 (dnsmasq) S 712 1111 712 0 "..., 1024) = 168
+read(6, "", 856)                        = 0
+close(6)                                = 0
+open("/proc/1111/status", O_RDONLY)     = 6
+read(6, "Name:\tdnsmasq\nState:\tS (sleeping"..., 1024) = 771
+read(6, "", 253)                        = 0
+close(6)                                = 0
+stat64("/proc/1125", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1125/stat", O_RDONLY)       = 6
+read(6, "1125 (VBoxService) S 1 1123 1123"..., 1024) = 177
+read(6, "", 847)                        = 0
+close(6)                                = 0
+open("/proc/1125/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxService\nState:\tS (slee"..., 1024) = 751
+read(6, "", 273)                        = 0
+close(6)                                = 0
+stat64("/proc/1398", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1398/stat", O_RDONLY)       = 6
+read(6, "1398 (getty) S 1 1398 1398 1025 "..., 1024) = 163
+read(6, "", 861)                        = 0
+close(6)                                = 0
+open("/proc/1398/status", O_RDONLY)     = 6
+read(6, "Name:\tgetty\nState:\tS (sleeping)\n"..., 1024) = 744
+read(6, "", 280)                        = 0
+close(6)                                = 0
+stat64("/proc/1416", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1416/stat", O_RDONLY)       = 6
+read(6, "1416 (sh) S 1 1416 1416 0 -1 421"..., 1024) = 159
+read(6, "", 865)                        = 0
+close(6)                                = 0
+open("/proc/1416/status", O_RDONLY)     = 6
+read(6, "Name:\tsh\nState:\tS (sleeping)\nTgi"..., 1024) = 741
+read(6, "", 283)                        = 0
+close(6)                                = 0
+stat64("/proc/1417", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1417/stat", O_RDONLY)       = 6
+read(6, "1417 (initctl) S 1416 1416 1416 "..., 1024) = 163
+read(6, "", 861)                        = 0
+close(6)                                = 0
+open("/proc/1417/status", O_RDONLY)     = 6
+read(6, "Name:\tinitctl\nState:\tS (sleeping"..., 1024) = 750
+read(6, "", 274)                        = 0
+close(6)                                = 0
+stat64("/proc/1429", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/1429/stat", O_RDONLY)       = 6
-read(6, "1429 (acpid) S 1 1429 1429 0 -1 "..., 1024) = 168
+read(6, "1429 (lightdm) S 880 880 880 0 -"..., 1024) = 171
+read(6, "", 853)                        = 0
 close(6)                                = 0
 open("/proc/1429/status", O_RDONLY)     = 6
-read(6, "Name:\tacpid\nState:\tS (sleeping)\n"..., 1024) = 891
+read(6, "Name:\tlightdm\nState:\tS (sleeping"..., 1024) = 777
+read(6, "", 247)                        = 0
 close(6)                                = 0
-stat("/proc/1432", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1432/stat", O_RDONLY)       = 6
-read(6, "1432 (cron) S 1 1432 1432 0 -1 1"..., 1024) = 169
-close(6)                                = 0
-open("/proc/1432/status", O_RDONLY)     = 6
-read(6, "Name:\tcron\nState:\tS (sleeping)\nT"..., 1024) = 888
-close(6)                                = 0
-stat("/proc/1440", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+stat64("/proc/1440", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
 open("/proc/1440/stat", O_RDONLY)       = 6
-read(6, "1440 (ModemManager) S 1 1440 144"..., 1024) = 177
+read(6, "1440 (upowerd) S 1 421 421 0 -1 "..., 1024) = 167
+read(6, "", 857)                        = 0
 close(6)                                = 0
 open("/proc/1440/status", O_RDONLY)     = 6
-read(6, "Name:\tModemManager\nState:\tS (sle"..., 1024) = 897
-close(6)                                = 0
-stat("/proc/1447", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1447/stat", O_RDONLY)       = 6
-read(6, "1447 (snapd) S 1 1447 1447 0 -1 "..., 1024) = 186
-close(6)                                = 0
-open("/proc/1447/status", O_RDONLY)     = 6
-read(6, "Name:\tsnapd\nState:\tS (sleeping)\n"..., 1024) = 889
-close(6)                                = 0
-stat("/proc/1538", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1538/stat", O_RDONLY)       = 6
-read(6, "1538 (polkitd) S 1 1538 1538 0 -"..., 1024) = 170
-close(6)                                = 0
-open("/proc/1538/status", O_RDONLY)     = 6
-read(6, "Name:\tpolkitd\nState:\tS (sleeping"..., 1024) = 895
-close(6)                                = 0
-stat("/proc/1540", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1540/stat", O_RDONLY)       = 6
-read(6, "1540 (cups-browsed) S 1 1540 154"..., 1024) = 176
-close(6)                                = 0
-open("/proc/1540/status", O_RDONLY)     = 6
-read(6, "Name:\tcups-browsed\nState:\tS (sle"..., 1024) = 898
-close(6)                                = 0
-stat("/proc/1558", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1558/stat", O_RDONLY)       = 6
-read(6, "1558 (lightdm) S 1 1558 1558 0 -"..., 1024) = 176
-close(6)                                = 0
-open("/proc/1558/status", O_RDONLY)     = 6
-read(6, "Name:\tlightdm\nState:\tS (sleeping"..., 1024) = 893
-close(6)                                = 0
-stat("/proc/1584", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1584/stat", O_RDONLY)       = 6
-read(6, "1584 (Xorg) S 1558 1584 1584 103"..., 1024) = 199
-close(6)                                = 0
-open("/proc/1584/status", O_RDONLY)     = 6
-read(6, "Name:\tXorg\nState:\tS (sleeping)\nT"..., 1024) = 900
-close(6)                                = 0
-stat("/proc/1603", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1603/stat", O_RDONLY)       = 6
-read(6, "1603 (agetty) S 1 1603 1603 1025"..., 1024) = 167
-close(6)                                = 0
-open("/proc/1603/status", O_RDONLY)     = 6
-read(6, "Name:\tagetty\nState:\tS (sleeping)"..., 1024) = 890
-close(6)                                = 0
-stat("/proc/1651", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/1651/stat", O_RDONLY)       = 6
-read(6, "1651 (dnsmasq) S 1375 1651 1375 "..., 1024) = 173
-close(6)                                = 0
-open("/proc/1651/status", O_RDONLY)     = 6
-read(6, "Name:\tdnsmasq\nState:\tS (sleeping"..., 1024) = 915
-close(6)                                = 0
-stat("/proc/2118", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2118/stat", O_RDONLY)       = 6
-read(6, "2118 (lightdm) S 1558 1558 1558 "..., 1024) = 176
-close(6)                                = 0
-open("/proc/2118/status", O_RDONLY)     = 6
-read(6, "Name:\tlightdm\nState:\tS (sleeping"..., 1024) = 921
-close(6)                                = 0
-stat("/proc/2178", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2178/stat", O_RDONLY)       = 6
-read(6, "2178 (rtkit-daemon) S 1 2178 217"..., 1024) = 173
-close(6)                                = 0
-open("/proc/2178/status", O_RDONLY)     = 6
-read(6, "Name:\trtkit-daemon\nState:\tS (sle"..., 1024) = 913
-close(6)                                = 0
-stat("/proc/2199", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2199/stat", O_RDONLY)       = 6
-read(6, "2199 (upowerd) S 1 2199 2199 0 -"..., 1024) = 170
-close(6)                                = 0
-open("/proc/2199/status", O_RDONLY)     = 6
-read(6, "Name:\tupowerd\nState:\tS (sleeping"..., 1024) = 896
-close(6)                                = 0
-stat("/proc/2214", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2214/stat", O_RDONLY)       = 6
-read(6, "2214 (colord) S 1 2214 2214 0 -1"..., 1024) = 172
-close(6)                                = 0
-open("/proc/2214/status", O_RDONLY)     = 6
-read(6, "Name:\tcolord\nState:\tS (sleeping)"..., 1024) = 913
-close(6)                                = 0
-stat("/proc/2232", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2232/stat", O_RDONLY)       = 6
-read(6, "2232 (systemd) S 1 2232 2232 0 -"..., 1024) = 340
-close(6)                                = 0
-open("/proc/2232/status", O_RDONLY)     = 6
-read(6, "Name:\tsystemd\nState:\tS (sleeping"..., 1024) = 943
-close(6)                                = 0
-stat("/proc/2233", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2233/stat", O_RDONLY)       = 6
-read(6, "2233 ((sd-pam)) S 2232 2232 2232"..., 1024) = 172
-close(6)                                = 0
-open("/proc/2233/status", O_RDONLY)     = 6
-read(6, "Name:\t(sd-pam)\nState:\tS (sleepin"..., 1024) = 944
-close(6)                                = 0
-stat("/proc/2270", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2270/stat", O_RDONLY)       = 6
-read(6, "2270 (gnome-keyring-d) S 1 2269 "..., 1024) = 180
-close(6)                                = 0
-open("/proc/2270/status", O_RDONLY)     = 6
-read(6, "Name:\tgnome-keyring-d\nState:\tS ("..., 1024) = 951
-close(6)                                = 0
-stat("/proc/2275", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2275/stat", O_RDONLY)       = 6
-read(6, "2275 (upstart) S 2118 2275 2275 "..., 1024) = 348
-close(6)                                = 0
-open("/proc/2275/status", O_RDONLY)     = 6
-read(6, "Name:\tupstart\nState:\tS (sleeping"..., 1024) = 949
-close(6)                                = 0
-stat("/proc/2363", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2363/stat", O_RDONLY)       = 6
-read(6, "2363 (upstart-udev-br) S 2275 23"..., 1024) = 339
-close(6)                                = 0
-open("/proc/2363/status", O_RDONLY)     = 6
-read(6, "Name:\tupstart-udev-br\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2370", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2370/stat", O_RDONLY)       = 6
-read(6, "2370 (dbus-daemon) S 2275 2370 2"..., 1024) = 345
-close(6)                                = 0
-open("/proc/2370/status", O_RDONLY)     = 6
-read(6, "Name:\tdbus-daemon\nState:\tS (slee"..., 1024) = 955
-close(6)                                = 0
-stat("/proc/2382", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2382/stat", O_RDONLY)       = 6
-read(6, "2382 (window-stack-br) S 2275 23"..., 1024) = 309
-close(6)                                = 0
-open("/proc/2382/status", O_RDONLY)     = 6
-read(6, "Name:\twindow-stack-br\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2428", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2428/stat", O_RDONLY)       = 6
-read(6, "2428 (bamfdaemon) S 2275 2428 24"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2428/status", O_RDONLY)     = 6
-read(6, "Name:\tbamfdaemon\nState:\tS (sleep"..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2429", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2429/stat", O_RDONLY)       = 6
-read(6, "2429 (gpg-agent) S 2275 2429 242"..., 1024) = 178
-close(6)                                = 0
-open("/proc/2429/status", O_RDONLY)     = 6
-read(6, "Name:\tgpg-agent\nState:\tS (sleepi"..., 1024) = 949
-close(6)                                = 0
-stat("/proc/2434", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2434/stat", O_RDONLY)       = 6
-read(6, "2434 (upstart-dbus-br) S 2275 24"..., 1024) = 341
-close(6)                                = 0
-open("/proc/2434/status", O_RDONLY)     = 6
-read(6, "Name:\tupstart-dbus-br\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2436", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2436/stat", O_RDONLY)       = 6
-read(6, "2436 (upstart-dbus-br) S 2275 24"..., 1024) = 339
-close(6)                                = 0
-open("/proc/2436/status", O_RDONLY)     = 6
-read(6, "Name:\tupstart-dbus-br\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2438", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2438/stat", O_RDONLY)       = 6
-read(6, "2438 (upstart-file-br) S 2275 24"..., 1024) = 343
-close(6)                                = 0
-open("/proc/2438/status", O_RDONLY)     = 6
-read(6, "Name:\tupstart-file-br\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2442", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2442/stat", O_RDONLY)       = 6
-read(6, "2442 (gvfsd) S 2275 2370 2370 0 "..., 1024) = 302
-close(6)                                = 0
-open("/proc/2442/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfsd\nState:\tS (sleeping)\n"..., 1024) = 944
-close(6)                                = 0
-stat("/proc/2447", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2447/stat", O_RDONLY)       = 6
-read(6, "2447 (gvfsd-fuse) S 2275 2370 23"..., 1024) = 312
-close(6)                                = 0
-open("/proc/2447/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfsd-fuse\nState:\tS (sleep"..., 1024) = 946
-close(6)                                = 0
-stat("/proc/2450", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2450/stat", O_RDONLY)       = 6
-read(6, "2450 (ibus-daemon) S 2275 2450 2"..., 1024) = 313
-close(6)                                = 0
-open("/proc/2450/status", O_RDONLY)     = 6
-read(6, "Name:\tibus-daemon\nState:\tS (slee"..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2466", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2466/stat", O_RDONLY)       = 6
-read(6, "2466 (at-spi-bus-laun) S 2275 23"..., 1024) = 312
-close(6)                                = 0
-open("/proc/2466/status", O_RDONLY)     = 6
-read(6, "Name:\tat-spi-bus-laun\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2468", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2468/stat", O_RDONLY)       = 6
-read(6, "2468 (ibus-dconf) S 2450 2450 24"..., 1024) = 303
-close(6)                                = 0
-open("/proc/2468/status", O_RDONLY)     = 6
-read(6, "Name:\tibus-dconf\nState:\tS (sleep"..., 1024) = 948
-close(6)                                = 0
-stat("/proc/2469", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2469/stat", O_RDONLY)       = 6
-read(6, "2469 (ibus-ui-gtk3) S 2450 2450 "..., 1024) = 309
-close(6)                                = 0
-open("/proc/2469/status", O_RDONLY)     = 6
-read(6, "Name:\tibus-ui-gtk3\nState:\tS (sle"..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2471", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2471/stat", O_RDONLY)       = 6
-read(6, "2471 (ibus-x11) S 2275 2450 2450"..., 1024) = 307
-close(6)                                = 0
-open("/proc/2471/status", O_RDONLY)     = 6
-read(6, "Name:\tibus-x11\nState:\tS (sleepin"..., 1024) = 949
-close(6)                                = 0
-stat("/proc/2479", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2479/stat", O_RDONLY)       = 6
-read(6, "2479 (dbus-daemon) S 2466 2370 2"..., 1024) = 338
-close(6)                                = 0
-open("/proc/2479/status", O_RDONLY)     = 6
-read(6, "Name:\tdbus-daemon\nState:\tS (slee"..., 1024) = 950
-close(6)                                = 0
-stat("/proc/2482", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2482/stat", O_RDONLY)       = 6
-read(6, "2482 (at-spi2-registr) S 2275 23"..., 1024) = 310
-close(6)                                = 0
-open("/proc/2482/status", O_RDONLY)     = 6
-read(6, "Name:\tat-spi2-registr\nState:\tS ("..., 1024) = 957
-close(6)                                = 0
-stat("/proc/2493", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2493/stat", O_RDONLY)       = 6
-read(6, "2493 (ibus-engine-sim) S 2450 24"..., 1024) = 311
-close(6)                                = 0
-open("/proc/2493/status", O_RDONLY)     = 6
-read(6, "Name:\tibus-engine-sim\nState:\tS ("..., 1024) = 957
-close(6)                                = 0
-stat("/proc/2511", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2511/stat", O_RDONLY)       = 6
-read(6, "2511 (hud-service) S 2275 2511 2"..., 1024) = 313
-close(6)                                = 0
-open("/proc/2511/status", O_RDONLY)     = 6
-read(6, "Name:\thud-service\nState:\tS (slee"..., 1024) = 951
-close(6)                                = 0
-stat("/proc/2513", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2513/stat", O_RDONLY)       = 6
-read(6, "2513 (unity-settings-) S 2275 25"..., 1024) = 320
-close(6)                                = 0
-open("/proc/2513/status", O_RDONLY)     = 6
-read(6, "Name:\tunity-settings-\nState:\tS ("..., 1024) = 957
-close(6)                                = 0
-stat("/proc/2522", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2522/stat", O_RDONLY)       = 6
-read(6, "2522 (gnome-session-b) S 2275 25"..., 1024) = 316
-close(6)                                = 0
-open("/proc/2522/status", O_RDONLY)     = 6
-read(6, "Name:\tgnome-session-b\nState:\tS ("..., 1024) = 955
-close(6)                                = 0
-stat("/proc/2529", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2529/stat", O_RDONLY)       = 6
-read(6, "2529 (unity-panel-ser) S 2275 25"..., 1024) = 316
-close(6)                                = 0
-open("/proc/2529/status", O_RDONLY)     = 6
-read(6, "Name:\tunity-panel-ser\nState:\tS ("..., 1024) = 958
-close(6)                                = 0
-stat("/proc/2541", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2541/stat", O_RDONLY)       = 6
-read(6, "2541 (compiz) R 2275 2541 2541 0"..., 1024) = 321
-close(6)                                = 0
-open("/proc/2541/status", O_RDONLY)     = 6
-read(6, "Name:\tcompiz\nState:\tR (running)\n"..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2552", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2552/stat", O_RDONLY)       = 6
-read(6, "2552 (dconf-service) S 2275 2370"..., 1024) = 314
-close(6)                                = 0
-open("/proc/2552/status", O_RDONLY)     = 6
-read(6, "Name:\tdconf-service\nState:\tS (sl"..., 1024) = 955
-close(6)                                = 0
-stat("/proc/2563", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2563/stat", O_RDONLY)       = 6
-read(6, "2563 (indicator-messa) S 2275 25"..., 1024) = 311
-close(6)                                = 0
-open("/proc/2563/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-messa\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2567", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2567/stat", O_RDONLY)       = 6
-read(6, "2567 (indicator-bluet) S 2275 25"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2567/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-bluet\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2571", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2571/stat", O_RDONLY)       = 6
-read(6, "2571 (indicator-power) S 2275 25"..., 1024) = 310
-close(6)                                = 0
-open("/proc/2571/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-power\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/2572", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2572/stat", O_RDONLY)       = 6
-read(6, "2572 (indicator-datet) S 2275 25"..., 1024) = 311
-close(6)                                = 0
-open("/proc/2572/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-datet\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/2573", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2573/stat", O_RDONLY)       = 6
-read(6, "2573 (indicator-keybo) S 2275 25"..., 1024) = 314
-close(6)                                = 0
-open("/proc/2573/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-keybo\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/2574", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2574/stat", O_RDONLY)       = 6
-read(6, "2574 (indicator-sound) S 2275 25"..., 1024) = 314
-close(6)                                = 0
-open("/proc/2574/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-sound\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2578", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2578/stat", O_RDONLY)       = 6
-read(6, "2578 (indicator-print) S 2275 25"..., 1024) = 310
-close(6)                                = 0
-open("/proc/2578/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-print\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/2579", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2579/stat", O_RDONLY)       = 6
-read(6, "2579 (indicator-sessi) S 2275 25"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2579/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-sessi\nState:\tS ("..., 1024) = 955
-close(6)                                = 0
-stat("/proc/2606", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2606/stat", O_RDONLY)       = 6
-read(6, "2606 (indicator-appli) S 2275 26"..., 1024) = 309
-close(6)                                = 0
-open("/proc/2606/status", O_RDONLY)     = 6
-read(6, "Name:\tindicator-appli\nState:\tS ("..., 1024) = 955
-close(6)                                = 0
-stat("/proc/2612", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2612/stat", O_RDONLY)       = 6
-read(6, "2612 (evolution-sourc) S 2275 23"..., 1024) = 349
-close(6)                                = 0
-open("/proc/2612/status", O_RDONLY)     = 6
-read(6, "Name:\tevolution-sourc\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2615", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2615/stat", O_RDONLY)       = 6
-read(6, "2615 (pulseaudio) S 2275 2614 26"..., 1024) = 311
-close(6)                                = 0
-open("/proc/2615/status", O_RDONLY)     = 6
-read(6, "Name:\tpulseaudio\nState:\tS (sleep"..., 1024) = 950
-close(6)                                = 0
-stat("/proc/2662", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2662/stat", O_RDONLY)       = 6
-read(6, "2662 (evolution-calen) S 2275 23"..., 1024) = 352
-close(6)                                = 0
-open("/proc/2662/status", O_RDONLY)     = 6
-read(6, "Name:\tevolution-calen\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2676", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2676/stat", O_RDONLY)       = 6
-read(6, "2676 (gnome-software) S 2522 252"..., 1024) = 320
-close(6)                                = 0
-open("/proc/2676/status", O_RDONLY)     = 6
-read(6, "Name:\tgnome-software\nState:\tS (s"..., 1024) = 958
-close(6)                                = 0
-stat("/proc/2680", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2680/stat", O_RDONLY)       = 6
-read(6, "2680 (nm-applet) S 2522 2522 252"..., 1024) = 304
-close(6)                                = 0
-open("/proc/2680/status", O_RDONLY)     = 6
-read(6, "Name:\tnm-applet\nState:\tS (sleepi"..., 1024) = 951
-close(6)                                = 0
-stat("/proc/2681", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2681/stat", O_RDONLY)       = 6
-read(6, "2681 (unity-fallback-) S 2522 25"..., 1024) = 310
-close(6)                                = 0
-open("/proc/2681/status", O_RDONLY)     = 6
-read(6, "Name:\tunity-fallback-\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/2684", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2684/stat", O_RDONLY)       = 6
-read(6, "2684 (polkit-gnome-au) S 2522 25"..., 1024) = 312
-close(6)                                = 0
-open("/proc/2684/status", O_RDONLY)     = 6
-read(6, "Name:\tpolkit-gnome-au\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/2685", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2685/stat", O_RDONLY)       = 6
-read(6, "2685 (nautilus) S 2522 2522 2522"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2685/status", O_RDONLY)     = 6
-read(6, "Name:\tnautilus\nState:\tS (sleepin"..., 1024) = 950
-close(6)                                = 0
-stat("/proc/2694", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2694/stat", O_RDONLY)       = 6
-read(6, "2694 (evolution-calen) S 2662 23"..., 1024) = 344
-close(6)                                = 0
-open("/proc/2694/status", O_RDONLY)     = 6
-read(6, "Name:\tevolution-calen\nState:\tS ("..., 1024) = 955
-close(6)                                = 0
-stat("/proc/2717", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2717/stat", O_RDONLY)       = 6
-read(6, "2717 (gvfs-udisks2-vo) S 2275 23"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2717/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfs-udisks2-vo\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2725", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2725/stat", O_RDONLY)       = 6
-read(6, "2725 (udisksd) S 1 2725 2725 0 -"..., 1024) = 169
-close(6)                                = 0
-open("/proc/2725/status", O_RDONLY)     = 6
-read(6, "Name:\tudisksd\nState:\tS (sleeping"..., 1024) = 893
-close(6)                                = 0
-stat("/proc/2736", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2736/stat", O_RDONLY)       = 6
-read(6, "2736 (evolution-addre) S 2275 23"..., 1024) = 348
-close(6)                                = 0
-open("/proc/2736/status", O_RDONLY)     = 6
-read(6, "Name:\tevolution-addre\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2737", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2737/stat", O_RDONLY)       = 6
-read(6, "2737 (evolution-calen) S 2662 23"..., 1024) = 344
-close(6)                                = 0
-open("/proc/2737/status", O_RDONLY)     = 6
-read(6, "Name:\tevolution-calen\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2751", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2751/stat", O_RDONLY)       = 6
-read(6, "2751 (gvfs-afc-volume) S 2275 23"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2751/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfs-afc-volume\nState:\tS ("..., 1024) = 952
-close(6)                                = 0
-stat("/proc/2762", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2762/stat", O_RDONLY)       = 6
-read(6, "2762 (fwupd) S 1 1347 1347 0 -1 "..., 1024) = 169
-close(6)                                = 0
-open("/proc/2762/status", O_RDONLY)     = 6
-read(6, "Name:\tfwupd\nState:\tS (sleeping)\n"..., 1024) = 893
-close(6)                                = 0
-stat("/proc/2763", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2763/stat", O_RDONLY)       = 6
-read(6, "2763 (gvfs-mtp-volume) S 2275 23"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2763/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfs-mtp-volume\nState:\tS ("..., 1024) = 952
-close(6)                                = 0
-stat("/proc/2771", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2771/stat", O_RDONLY)       = 6
-read(6, "2771 (gvfs-goa-volume) S 2275 23"..., 1024) = 308
-close(6)                                = 0
-open("/proc/2771/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfs-goa-volume\nState:\tS ("..., 1024) = 952
-close(6)                                = 0
-stat("/proc/2772", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2772/stat", O_RDONLY)       = 6
-read(6, "2772 (evolution-addre) S 2736 23"..., 1024) = 344
-close(6)                                = 0
-open("/proc/2772/status", O_RDONLY)     = 6
-read(6, "Name:\tevolution-addre\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2779", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2779/stat", O_RDONLY)       = 6
-read(6, "2779 (gvfs-gphoto2-vo) S 2275 23"..., 1024) = 307
-close(6)                                = 0
-open("/proc/2779/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfs-gphoto2-vo\nState:\tS ("..., 1024) = 952
-close(6)                                = 0
-stat("/proc/2797", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2797/stat", O_RDONLY)       = 6
-read(6, "2797 (gvfsd-trash) S 2275 2370 2"..., 1024) = 307
-close(6)                                = 0
-open("/proc/2797/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfsd-trash\nState:\tS (slee"..., 1024) = 949
-close(6)                                = 0
-stat("/proc/2812", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2812/stat", O_RDONLY)       = 6
-read(6, "2812 (gvfsd-metadata) S 2275 237"..., 1024) = 307
-close(6)                                = 0
-open("/proc/2812/status", O_RDONLY)     = 6
-read(6, "Name:\tgvfsd-metadata\nState:\tS (s"..., 1024) = 952
-close(6)                                = 0
-stat("/proc/2873", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2873/stat", O_RDONLY)       = 6
-read(6, "2873 (gnome-terminal-) S 2275 23"..., 1024) = 331
-close(6)                                = 0
-open("/proc/2873/status", O_RDONLY)     = 6
-read(6, "Name:\tgnome-terminal-\nState:\tS ("..., 1024) = 961
-close(6)                                = 0
-stat("/proc/2893", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2893/stat", O_RDONLY)       = 6
-read(6, "2893 (zeitgeist-datah) S 2522 25"..., 1024) = 311
-close(6)                                = 0
-open("/proc/2893/status", O_RDONLY)     = 6
-read(6, "Name:\tzeitgeist-datah\nState:\tS ("..., 1024) = 953
-close(6)                                = 0
-stat("/proc/2900", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2900/stat", O_RDONLY)       = 6
-read(6, "2900 (sh) S 2275 2370 2370 0 -1 "..., 1024) = 331
-close(6)                                = 0
-open("/proc/2900/status", O_RDONLY)     = 6
-read(6, "Name:\tsh\nState:\tS (sleeping)\nTgi"..., 1024) = 939
-close(6)                                = 0
-stat("/proc/2906", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2906/stat", O_RDONLY)       = 6
-read(6, "2906 (zeitgeist-daemo) S 2900 23"..., 1024) = 312
-close(6)                                = 0
-open("/proc/2906/status", O_RDONLY)     = 6
-read(6, "Name:\tzeitgeist-daemo\nState:\tS ("..., 1024) = 954
-close(6)                                = 0
-stat("/proc/2914", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2914/stat", O_RDONLY)       = 6
-read(6, "2914 (zeitgeist-fts) S 2275 2370"..., 1024) = 311
-close(6)                                = 0
-open("/proc/2914/status", O_RDONLY)     = 6
-read(6, "Name:\tzeitgeist-fts\nState:\tS (sl"..., 1024) = 951
-close(6)                                = 0
-stat("/proc/2958", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/2958/stat", O_RDONLY)       = 6
-read(6, "2958 (update-notifier) S 2522 25"..., 1024) = 318
-close(6)                                = 0
-open("/proc/2958/status", O_RDONLY)     = 6
-read(6, "Name:\tupdate-notifier\nState:\tS ("..., 1024) = 956
-close(6)                                = 0
-stat("/proc/3000", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/3000/stat", O_RDONLY)       = 6
-read(6, "3000 (deja-dup-monito) S 2522 25"..., 1024) = 309
-close(6)                                = 0
-open("/proc/3000/status", O_RDONLY)     = 6
-read(6, "Name:\tdeja-dup-monito\nState:\tS ("..., 1024) = 955
-close(6)                                = 0
-stat("/proc/3545", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/3545/stat", O_RDONLY)       = 6
-read(6, "3545 (bash) S 2873 3545 3545 348"..., 1024) = 333
-close(6)                                = 0
-open("/proc/3545/status", O_RDONLY)     = 6
-read(6, "Name:\tbash\nState:\tS (sleeping)\nT"..., 1024) = 946
-close(6)                                = 0
-fstat(1, {st_mode=S_IFREG|0664, st_size=72365, ...}) = 0
+read(6, "Name:\tupowerd\nState:\tS (sleeping"..., 1024) = 752
+read(6, "", 272)                        = 0
+close(6)                                = 0
+stat64("/proc/1514", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1514/stat", O_RDONLY)       = 6
+read(6, "1514 (rtkit-daemon) S 1 421 421 "..., 1024) = 164
+read(6, "", 860)                        = 0
+close(6)                                = 0
+open("/proc/1514/status", O_RDONLY)     = 6
+read(6, "Name:\trtkit-daemon\nState:\tS (sle"..., 1024) = 770
+read(6, "", 254)                        = 0
+close(6)                                = 0
+stat64("/proc/1610", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1610/stat", O_RDONLY)       = 6
+read(6, "1610 (gnome-keyring-d) S 1 880 8"..., 1024) = 177
+read(6, "", 847)                        = 0
+close(6)                                = 0
+open("/proc/1610/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-keyring-d\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/1621", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1621/stat", O_RDONLY)       = 6
+read(6, "1621 (gnome-session) S 1429 1621"..., 1024) = 289
+read(6, "", 735)                        = 0
+close(6)                                = 0
+open("/proc/1621/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-session\nState:\tS (sl"..., 1024) = 811
+read(6, "", 213)                        = 0
+close(6)                                = 0
+stat64("/proc/1661", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1661/stat", O_RDONLY)       = 6
+read(6, "1661 (VBoxClient) S 1 1659 1659 "..., 1024) = 276
+read(6, "", 748)                        = 0
+close(6)                                = 0
+open("/proc/1661/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 800
+read(6, "", 224)                        = 0
+close(6)                                = 0
+stat64("/proc/1662", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1662/stat", O_RDONLY)       = 6
+read(6, "1662 (VBoxClient) S 1661 1659 16"..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/1662/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 805
+read(6, "", 219)                        = 0
+close(6)                                = 0
+stat64("/proc/1672", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1672/stat", O_RDONLY)       = 6
+read(6, "1672 (VBoxClient) S 1 1670 1670 "..., 1024) = 276
+read(6, "", 748)                        = 0
+close(6)                                = 0
+open("/proc/1672/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 800
+read(6, "", 224)                        = 0
+close(6)                                = 0
+stat64("/proc/1673", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1673/stat", O_RDONLY)       = 6
+read(6, "1673 (VBoxClient) S 1672 1670 16"..., 1024) = 282
+read(6, "", 742)                        = 0
+close(6)                                = 0
+open("/proc/1673/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 806
+read(6, "", 218)                        = 0
+close(6)                                = 0
+stat64("/proc/1678", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1678/stat", O_RDONLY)       = 6
+read(6, "1678 (VBoxClient) S 1 1677 1677 "..., 1024) = 276
+read(6, "", 748)                        = 0
+close(6)                                = 0
+open("/proc/1678/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 800
+read(6, "", 224)                        = 0
+close(6)                                = 0
+stat64("/proc/1679", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1679/stat", O_RDONLY)       = 6
+read(6, "1679 (VBoxClient) S 1678 1677 16"..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/1679/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 803
+read(6, "", 221)                        = 0
+close(6)                                = 0
+stat64("/proc/1689", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1689/stat", O_RDONLY)       = 6
+read(6, "1689 (VBoxClient) S 1 1687 1687 "..., 1024) = 276
+read(6, "", 748)                        = 0
+close(6)                                = 0
+open("/proc/1689/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 800
+read(6, "", 224)                        = 0
+close(6)                                = 0
+stat64("/proc/1690", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1690/stat", O_RDONLY)       = 6
+read(6, "1690 (VBoxClient) S 1689 1687 16"..., 1024) = 285
+read(6, "", 739)                        = 0
+close(6)                                = 0
+open("/proc/1690/status", O_RDONLY)     = 6
+read(6, "Name:\tVBoxClient\nState:\tS (sleep"..., 1024) = 804
+read(6, "", 220)                        = 0
+close(6)                                = 0
+stat64("/proc/1693", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1693/stat", O_RDONLY)       = 6
+read(6, "1693 (ssh-agent) S 1621 1693 169"..., 1024) = 171
+read(6, "", 853)                        = 0
+close(6)                                = 0
+open("/proc/1693/status", O_RDONLY)     = 6
+read(6, "Name:\tssh-agent\nState:\tS (sleepi"..., 1024) = 803
+read(6, "", 221)                        = 0
+close(6)                                = 0
+stat64("/proc/1696", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1696/stat", O_RDONLY)       = 6
+read(6, "1696 (dbus-launch) S 1 1621 1621"..., 1024) = 280
+read(6, "", 744)                        = 0
+close(6)                                = 0
+open("/proc/1696/status", O_RDONLY)     = 6
+read(6, "Name:\tdbus-launch\nState:\tS (slee"..., 1024) = 801
+read(6, "", 223)                        = 0
+close(6)                                = 0
+stat64("/proc/1697", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1697/stat", O_RDONLY)       = 6
+read(6, "1697 (dbus-daemon) S 1 1697 1697"..., 1024) = 286
+read(6, "", 738)                        = 0
+close(6)                                = 0
+open("/proc/1697/status", O_RDONLY)     = 6
+read(6, "Name:\tdbus-daemon\nState:\tS (slee"..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/1709", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1709/stat", O_RDONLY)       = 6
+read(6, "1709 (gnome-settings-) S 1621 16"..., 1024) = 292
+read(6, "", 732)                        = 0
+close(6)                                = 0
+open("/proc/1709/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-settings-\nState:\tS ("..., 1024) = 814
+read(6, "", 210)                        = 0
+close(6)                                = 0
+stat64("/proc/1716", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1716/stat", O_RDONLY)       = 6
+read(6, "1716 (gvfsd) S 1 1697 1697 0 -1 "..., 1024) = 269
+read(6, "", 755)                        = 0
+close(6)                                = 0
+open("/proc/1716/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfsd\nState:\tS (sleeping)\n"..., 1024) = 798
+read(6, "", 226)                        = 0
+close(6)                                = 0
+stat64("/proc/1718", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1718/stat", O_RDONLY)       = 6
+read(6, "1718 (gvfs-fuse-daemo) S 1 1697 "..., 1024) = 286
+read(6, "", 738)                        = 0
+close(6)                                = 0
+open("/proc/1718/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfs-fuse-daemo\nState:\tS ("..., 1024) = 805
+read(6, "", 219)                        = 0
+close(6)                                = 0
+stat64("/proc/1724", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1724/stat", O_RDONLY)       = 6
+read(6, "1724 (metacity) S 1621 1621 1621"..., 1024) = 289
+read(6, "", 735)                        = 0
+close(6)                                = 0
+open("/proc/1724/status", O_RDONLY)     = 6
+read(6, "Name:\tmetacity\nState:\tS (sleepin"..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/1726", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1726/stat", O_RDONLY)       = 6
+read(6, "1726 (colord) S 1 421 421 0 -1 4"..., 1024) = 166
+read(6, "", 858)                        = 0
+close(6)                                = 0
+open("/proc/1726/status", O_RDONLY)     = 6
+read(6, "Name:\tcolord\nState:\tS (sleeping)"..., 1024) = 770
+read(6, "", 254)                        = 0
+close(6)                                = 0
+stat64("/proc/1737", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1737/stat", O_RDONLY)       = 6
+read(6, "1737 (gconfd-2) S 1 1697 1697 0 "..., 1024) = 269
+read(6, "", 755)                        = 0
+close(6)                                = 0
+open("/proc/1737/status", O_RDONLY)     = 6
+read(6, "Name:\tgconfd-2\nState:\tS (sleepin"..., 1024) = 801
+read(6, "", 223)                        = 0
+close(6)                                = 0
+stat64("/proc/1741", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1741/stat", O_RDONLY)       = 6
+read(6, "1741 (pulseaudio) S 1 1740 1740 "..., 1024) = 283
+read(6, "", 741)                        = 0
+close(6)                                = 0
+open("/proc/1741/status", O_RDONLY)     = 6
+read(6, "Name:\tpulseaudio\nState:\tS (sleep"..., 1024) = 805
+read(6, "", 219)                        = 0
+close(6)                                = 0
+stat64("/proc/1742", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1742/stat", O_RDONLY)       = 6
+read(6, "1742 (unity-2d-panel) S 1621 162"..., 1024) = 290
+read(6, "", 734)                        = 0
+close(6)                                = 0
+open("/proc/1742/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-2d-panel\nState:\tS (s"..., 1024) = 813
+read(6, "", 211)                        = 0
+close(6)                                = 0
+stat64("/proc/1743", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1743/stat", O_RDONLY)       = 6
+read(6, "1743 (unity-2d-shell) S 1621 162"..., 1024) = 294
+read(6, "", 730)                        = 0
+close(6)                                = 0
+open("/proc/1743/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-2d-shell\nState:\tS (s"..., 1024) = 814
+read(6, "", 210)                        = 0
+close(6)                                = 0
+stat64("/proc/1746", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1746/stat", O_RDONLY)       = 6
+read(6, "1746 (gconf-helper) S 1741 1740 "..., 1024) = 273
+read(6, "", 751)                        = 0
+close(6)                                = 0
+open("/proc/1746/status", O_RDONLY)     = 6
+read(6, "Name:\tgconf-helper\nState:\tS (sle"..., 1024) = 807
+read(6, "", 217)                        = 0
+close(6)                                = 0
+stat64("/proc/1751", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1751/stat", O_RDONLY)       = 6
+read(6, "1751 (bluetooth-apple) S 1621 16"..., 1024) = 281
+read(6, "", 743)                        = 0
+close(6)                                = 0
+open("/proc/1751/status", O_RDONLY)     = 6
+read(6, "Name:\tbluetooth-apple\nState:\tS ("..., 1024) = 812
+read(6, "", 212)                        = 0
+close(6)                                = 0
+stat64("/proc/1752", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1752/stat", O_RDONLY)       = 6
+read(6, "1752 (nautilus) S 1621 1621 1621"..., 1024) = 281
+read(6, "", 743)                        = 0
+close(6)                                = 0
+open("/proc/1752/status", O_RDONLY)     = 6
+read(6, "Name:\tnautilus\nState:\tS (sleepin"..., 1024) = 807
+read(6, "", 217)                        = 0
+close(6)                                = 0
+stat64("/proc/1754", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1754/stat", O_RDONLY)       = 6
+read(6, "1754 (gnome-fallback-) S 1621 16"..., 1024) = 281
+read(6, "", 743)                        = 0
+close(6)                                = 0
+open("/proc/1754/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-fallback-\nState:\tS ("..., 1024) = 812
+read(6, "", 212)                        = 0
+close(6)                                = 0
+stat64("/proc/1755", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1755/stat", O_RDONLY)       = 6
+read(6, "1755 (nm-applet) S 1621 1621 162"..., 1024) = 282
+read(6, "", 742)                        = 0
+close(6)                                = 0
+open("/proc/1755/status", O_RDONLY)     = 6
+read(6, "Name:\tnm-applet\nState:\tS (sleepi"..., 1024) = 806
+read(6, "", 218)                        = 0
+close(6)                                = 0
+stat64("/proc/1757", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1757/stat", O_RDONLY)       = 6
+read(6, "1757 (bamfdaemon) S 1 1697 1697 "..., 1024) = 275
+read(6, "", 749)                        = 0
+close(6)                                = 0
+open("/proc/1757/status", O_RDONLY)     = 6
+read(6, "Name:\tbamfdaemon\nState:\tS (sleep"..., 1024) = 807
+read(6, "", 217)                        = 0
+close(6)                                = 0
+stat64("/proc/1758", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1758/stat", O_RDONLY)       = 6
+read(6, "1758 (polkit-gnome-au) S 1621 16"..., 1024) = 281
+read(6, "", 743)                        = 0
+close(6)                                = 0
+open("/proc/1758/status", O_RDONLY)     = 6
+read(6, "Name:\tpolkit-gnome-au\nState:\tS ("..., 1024) = 812
+read(6, "", 212)                        = 0
+close(6)                                = 0
+stat64("/proc/1801", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1801/stat", O_RDONLY)       = 6
+read(6, "1801 (gvfs-gdu-volume) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/1801/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfs-gdu-volume\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/1805", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1805/stat", O_RDONLY)       = 6
+read(6, "1805 (udisks-daemon) S 1 421 421"..., 1024) = 176
+read(6, "", 848)                        = 0
+close(6)                                = 0
+open("/proc/1805/status", O_RDONLY)     = 6
+read(6, "Name:\tudisks-daemon\nState:\tS (sl"..., 1024) = 758
+read(6, "", 266)                        = 0
+close(6)                                = 0
+stat64("/proc/1806", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1806/stat", O_RDONLY)       = 6
+read(6, "1806 (udisks-daemon) S 1805 421 "..., 1024) = 168
+read(6, "", 856)                        = 0
+close(6)                                = 0
+open("/proc/1806/status", O_RDONLY)     = 6
+read(6, "Name:\tudisks-daemon\nState:\tS (sl"..., 1024) = 757
+read(6, "", 267)                        = 0
+close(6)                                = 0
+stat64("/proc/1809", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1809/stat", O_RDONLY)       = 6
+read(6, "1809 (gvfs-gphoto2-vo) S 1 1697 "..., 1024) = 272
+read(6, "", 752)                        = 0
+close(6)                                = 0
+open("/proc/1809/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfs-gphoto2-vo\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/1812", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1812/stat", O_RDONLY)       = 6
+read(6, "1812 (gvfs-afc-volume) S 1 1697 "..., 1024) = 273
+read(6, "", 751)                        = 0
+close(6)                                = 0
+open("/proc/1812/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfs-afc-volume\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/1827", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1827/stat", O_RDONLY)       = 6
+read(6, "1827 (gvfsd-trash) S 1 1697 1697"..., 1024) = 273
+read(6, "", 751)                        = 0
+close(6)                                = 0
+open("/proc/1827/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfsd-trash\nState:\tS (slee"..., 1024) = 803
+read(6, "", 221)                        = 0
+close(6)                                = 0
+stat64("/proc/1829", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1829/stat", O_RDONLY)       = 6
+read(6, "1829 (dconf-service) S 1 1697 16"..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/1829/status", O_RDONLY)     = 6
+read(6, "Name:\tdconf-service\nState:\tS (sl"..., 1024) = 806
+read(6, "", 218)                        = 0
+close(6)                                = 0
+stat64("/proc/1938", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1938/stat", O_RDONLY)       = 6
+read(6, "1938 (unity-panel-ser) S 1 1697 "..., 1024) = 285
+read(6, "", 739)                        = 0
+close(6)                                = 0
+open("/proc/1938/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-panel-ser\nState:\tS ("..., 1024) = 812
+read(6, "", 212)                        = 0
+close(6)                                = 0
+stat64("/proc/1965", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/1965/stat", O_RDONLY)       = 6
+read(6, "1965 (gvfsd-burn) S 1 1697 1697 "..., 1024) = 270
+read(6, "", 754)                        = 0
+close(6)                                = 0
+open("/proc/1965/status", O_RDONLY)     = 6
+read(6, "Name:\tgvfsd-burn\nState:\tS (sleep"..., 1024) = 801
+read(6, "", 223)                        = 0
+close(6)                                = 0
+stat64("/proc/2025", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2025/stat", O_RDONLY)       = 6
+read(6, "2025 (indicator-datet) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2025/status", O_RDONLY)     = 6
+read(6, "Name:\tindicator-datet\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/2029", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2029/stat", O_RDONLY)       = 6
+read(6, "2029 (indicator-sound) S 1 1697 "..., 1024) = 279
+read(6, "", 745)                        = 0
+close(6)                                = 0
+open("/proc/2029/status", O_RDONLY)     = 6
+read(6, "Name:\tindicator-sound\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2035", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2035/stat", O_RDONLY)       = 6
+read(6, "2035 (indicator-messa) S 1 1697 "..., 1024) = 279
+read(6, "", 745)                        = 0
+close(6)                                = 0
+open("/proc/2035/status", O_RDONLY)     = 6
+read(6, "Name:\tindicator-messa\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2045", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2045/stat", O_RDONLY)       = 6
+read(6, "2045 (indicator-appli) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2045/status", O_RDONLY)     = 6
+read(6, "Name:\tindicator-appli\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2051", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2051/stat", O_RDONLY)       = 6
+read(6, "2051 (indicator-print) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2051/status", O_RDONLY)     = 6
+read(6, "Name:\tindicator-print\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2059", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2059/stat", O_RDONLY)       = 6
+read(6, "2059 (indicator-sessi) S 1 1697 "..., 1024) = 279
+read(6, "", 745)                        = 0
+close(6)                                = 0
+open("/proc/2059/status", O_RDONLY)     = 6
+read(6, "Name:\tindicator-sessi\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2105", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2105/stat", O_RDONLY)       = 6
+read(6, "2105 (geoclue-master) S 1 1697 1"..., 1024) = 271
+read(6, "", 753)                        = 0
+close(6)                                = 0
+open("/proc/2105/status", O_RDONLY)     = 6
+read(6, "Name:\tgeoclue-master\nState:\tS (s"..., 1024) = 807
+read(6, "", 217)                        = 0
+close(6)                                = 0
+stat64("/proc/2114", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2114/stat", O_RDONLY)       = 6
+read(6, "2114 (ubuntu-geoip-pr) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2114/status", O_RDONLY)     = 6
+read(6, "Name:\tubuntu-geoip-pr\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2129", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2129/stat", O_RDONLY)       = 6
+read(6, "2129 (hud-service) S 1 1697 1697"..., 1024) = 275
+read(6, "", 749)                        = 0
+close(6)                                = 0
+open("/proc/2129/status", O_RDONLY)     = 6
+read(6, "Name:\thud-service\nState:\tS (slee"..., 1024) = 805
+read(6, "", 219)                        = 0
+close(6)                                = 0
+stat64("/proc/2134", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2134/stat", O_RDONLY)       = 6
+read(6, "2134 (unity-applicati) S 1 1697 "..., 1024) = 280
+read(6, "", 744)                        = 0
+close(6)                                = 0
+open("/proc/2134/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-applicati\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2135", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2135/stat", O_RDONLY)       = 6
+read(6, "2135 (unity-music-dae) S 1 1697 "..., 1024) = 279
+read(6, "", 745)                        = 0
+close(6)                                = 0
+open("/proc/2135/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-music-dae\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2136", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2136/stat", O_RDONLY)       = 6
+read(6, "2136 (unity-files-dae) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2136/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-files-dae\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2137", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2137/stat", O_RDONLY)       = 6
+read(6, "2137 (unity-lens-vide) S 1 1697 "..., 1024) = 285
+read(6, "", 739)                        = 0
+close(6)                                = 0
+open("/proc/2137/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-lens-vide\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2173", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2173/stat", O_RDONLY)       = 6
+read(6, "2173 (zeitgeist-daemo) S 1 1697 "..., 1024) = 283
+read(6, "", 741)                        = 0
+close(6)                                = 0
+open("/proc/2173/status", O_RDONLY)     = 6
+read(6, "Name:\tzeitgeist-daemo\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2179", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2179/stat", O_RDONLY)       = 6
+read(6, "2179 (zeitgeist-fts) S 1 1697 16"..., 1024) = 280
+read(6, "", 744)                        = 0
+close(6)                                = 0
+open("/proc/2179/status", O_RDONLY)     = 6
+read(6, "Name:\tzeitgeist-fts\nState:\tS (sl"..., 1024) = 807
+read(6, "", 217)                        = 0
+close(6)                                = 0
+stat64("/proc/2181", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2181/stat", O_RDONLY)       = 6
+read(6, "2181 (zeitgeist-datah) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2181/status", O_RDONLY)     = 6
+read(6, "Name:\tzeitgeist-datah\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/2195", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2195/stat", O_RDONLY)       = 6
+read(6, "2195 (cat) S 2179 1697 1697 0 -1"..., 1024) = 268
+read(6, "", 756)                        = 0
+close(6)                                = 0
+open("/proc/2195/status", O_RDONLY)     = 6
+read(6, "Name:\tcat\nState:\tS (sleeping)\nTg"..., 1024) = 796
+read(6, "", 228)                        = 0
+close(6)                                = 0
+stat64("/proc/2208", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2208/stat", O_RDONLY)       = 6
+read(6, "2208 (unity-scope-vid) S 1 1697 "..., 1024) = 284
+read(6, "", 740)                        = 0
+close(6)                                = 0
+open("/proc/2208/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-scope-vid\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2210", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2210/stat", O_RDONLY)       = 6
+read(6, "2210 (unity-musicstor) S 1 1697 "..., 1024) = 277
+read(6, "", 747)                        = 0
+close(6)                                = 0
+open("/proc/2210/status", O_RDONLY)     = 6
+read(6, "Name:\tunity-musicstor\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
+close(6)                                = 0
+stat64("/proc/2243", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2243/stat", O_RDONLY)       = 6
+read(6, "2243 (gdu-notificatio) S 1621 16"..., 1024) = 282
+read(6, "", 742)                        = 0
+close(6)                                = 0
+open("/proc/2243/status", O_RDONLY)     = 6
+read(6, "Name:\tgdu-notificatio\nState:\tS ("..., 1024) = 812
+read(6, "", 212)                        = 0
+close(6)                                = 0
+stat64("/proc/2246", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2246/stat", O_RDONLY)       = 6
+read(6, "2246 (telepathy-indic) S 1621 16"..., 1024) = 282
+read(6, "", 742)                        = 0
+close(6)                                = 0
+open("/proc/2246/status", O_RDONLY)     = 6
+read(6, "Name:\ttelepathy-indic\nState:\tS ("..., 1024) = 812
+read(6, "", 212)                        = 0
+close(6)                                = 0
+stat64("/proc/2254", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2254/stat", O_RDONLY)       = 6
+read(6, "2254 (mission-control) S 1 1697 "..., 1024) = 278
+read(6, "", 746)                        = 0
+close(6)                                = 0
+open("/proc/2254/status", O_RDONLY)     = 6
+read(6, "Name:\tmission-control\nState:\tS ("..., 1024) = 809
+read(6, "", 215)                        = 0
+close(6)                                = 0
+stat64("/proc/2258", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2258/stat", O_RDONLY)       = 6
+read(6, "2258 (goa-daemon) S 1 1697 1697 "..., 1024) = 274
+read(6, "", 750)                        = 0
+close(6)                                = 0
+open("/proc/2258/status", O_RDONLY)     = 6
+read(6, "Name:\tgoa-daemon\nState:\tS (sleep"..., 1024) = 803
+read(6, "", 221)                        = 0
+close(6)                                = 0
+stat64("/proc/2264", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2264/stat", O_RDONLY)       = 6
+read(6, "2264 (gnome-screensav) S 1621 16"..., 1024) = 287
+read(6, "", 737)                        = 0
+close(6)                                = 0
+open("/proc/2264/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-screensav\nState:\tS ("..., 1024) = 813
+read(6, "", 211)                        = 0
+close(6)                                = 0
+stat64("/proc/2274", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2274/stat", O_RDONLY)       = 6
+read(6, "2274 (kworker/u3:2) S 2 0 0 0 -1"..., 1024) = 161
+read(6, "", 863)                        = 0
+close(6)                                = 0
+open("/proc/2274/status", O_RDONLY)     = 6
+read(6, "Name:\tkworker/u3:2\nState:\tS (sle"..., 1024) = 522
+read(6, "", 502)                        = 0
+close(6)                                = 0
+stat64("/proc/2281", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2281/stat", O_RDONLY)       = 6
+read(6, "2281 (gnome-terminal) S 1 1621 1"..., 1024) = 289
+read(6, "", 735)                        = 0
+close(6)                                = 0
+open("/proc/2281/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-terminal\nState:\tS (s"..., 1024) = 810
+read(6, "", 214)                        = 0
+close(6)                                = 0
+stat64("/proc/2289", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2289/stat", O_RDONLY)       = 6
+read(6, "2289 (gnome-pty-helpe) S 2281 16"..., 1024) = 187
+read(6, "", 837)                        = 0
+close(6)                                = 0
+open("/proc/2289/status", O_RDONLY)     = 6
+read(6, "Name:\tgnome-pty-helpe\nState:\tS ("..., 1024) = 802
+read(6, "", 222)                        = 0
+close(6)                                = 0
+stat64("/proc/2290", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2290/stat", O_RDONLY)       = 6
+read(6, "2290 (bash) S 2281 2290 2290 348"..., 1024) = 301
+read(6, "", 723)                        = 0
+close(6)                                = 0
+open("/proc/2290/status", O_RDONLY)     = 6
+read(6, "Name:\tbash\nState:\tS (sleeping)\nT"..., 1024) = 801
+read(6, "", 223)                        = 0
+close(6)                                = 0
+fstat64(1, {st_mode=S_IFREG|0664, st_size=71857, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb778b000
+readlink("/proc/2290/tty", 0xb776a220, 127) = -1 ENOENT (No such file or directory)
 open("/proc/tty/drivers", O_RDONLY)     = 6
-read(6, "/dev/tty             /dev/tty   "..., 9999) = 522
+read(6, "/dev/tty             /dev/tty   "..., 9999) = 574
 close(6)                                = 0
-stat("/dev/pts4", 0x7fffe987c8c0)       = -1 ENOENT (No such file or directory)
-stat("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
-readlink("/proc/3545/fd/2", "/dev/pts/4", 127) = 10
-stat("/dev/pts/4", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
-open("/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 6
-fstat(6, {st_mode=S_IFREG|0644, st_size=26258, ...}) = 0
-mmap(NULL, 26258, PROT_READ, MAP_SHARED, 6, 0) = 0x7f4124a7f000
+stat64("/dev/pts0", 0xbfbfe530)         = -1 ENOENT (No such file or directory)
+stat64("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+readlink("/proc/2290/fd/2", "/dev/pts/0", 127) = 10
+stat64("/dev/pts/0", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+open("/usr/lib/i386-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 6
+fstat64(6, {st_mode=S_IFREG|0644, st_size=26256, ...}) = 0
+mmap2(NULL, 26256, PROT_READ, MAP_SHARED, 6, 0) = 0xb7784000
 close(6)                                = 0
-futex(0x7f41244338c8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
-stat("/proc/5243", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/5243/stat", O_RDONLY)       = 6
-read(6, "5243 (notify-osd) S 2275 2370 23"..., 1024) = 310
+stat64("/proc/2347", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2347/stat", O_RDONLY)       = 6
+read(6, "2347 (update-notifier) S 1621 16"..., 1024) = 295
+read(6, "", 729)                        = 0
 close(6)                                = 0
-open("/proc/5243/status", O_RDONLY)     = 6
-read(6, "Name:\tnotify-osd\nState:\tS (sleep"..., 1024) = 953
+open("/proc/2347/status", O_RDONLY)     = 6
+read(6, "Name:\tupdate-notifier\nState:\tS ("..., 1024) = 813
+read(6, "", 211)                        = 0
 close(6)                                = 0
-stat("/proc/5931", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/5931/stat", O_RDONLY)       = 6
-read(6, "5931 (kworker/0:0) S 2 0 0 0 -1 "..., 1024) = 165
+stat64("/proc/2373", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2373/stat", O_RDONLY)       = 6
+read(6, "2373 (system-service-) S 1 421 4"..., 1024) = 177
+read(6, "", 847)                        = 0
 close(6)                                = 0
-open("/proc/5931/status", O_RDONLY)     = 6
-read(6, "Name:\tkworker/0:0\nState:\tS (slee"..., 1024) = 613
+open("/proc/2373/status", O_RDONLY)     = 6
+read(6, "Name:\tsystem-service-\nState:\tS ("..., 1024) = 759
+read(6, "", 265)                        = 0
 close(6)                                = 0
-stat("/proc/6024", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/6024/stat", O_RDONLY)       = 6
-read(6, "6024 (kworker/u2:2) S 2 0 0 0 -1"..., 1024) = 166
+stat64("/proc/2398", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2398/stat", O_RDONLY)       = 6
+read(6, "2398 (at-spi-bus-laun) S 1 1697 "..., 1024) = 286
+read(6, "", 738)                        = 0
 close(6)                                = 0
-open("/proc/6024/status", O_RDONLY)     = 6
-read(6, "Name:\tkworker/u2:2\nState:\tS (sle"..., 1024) = 614
+open("/proc/2398/status", O_RDONLY)     = 6
+read(6, "Name:\tat-spi-bus-laun\nState:\tS ("..., 1024) = 808
+read(6, "", 216)                        = 0
 close(6)                                = 0
-stat("/proc/6036", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/6036/stat", O_RDONLY)       = 6
-read(6, "6036 (python) T 3545 6036 3545 3"..., 1024) = 322
+stat64("/proc/2430", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/2430/stat", O_RDONLY)       = 6
+read(6, "2430 (deja-dup-monito) S 1621 16"..., 1024) = 285
+read(6, "", 739)                        = 0
 close(6)                                = 0
-open("/proc/6036/status", O_RDONLY)     = 6
-read(6, "Name:\tpython\nState:\tT (stopped)\n"..., 1024) = 945
+open("/proc/2430/status", O_RDONLY)     = 6
+read(6, "Name:\tdeja-dup-monito\nState:\tS ("..., 1024) = 810
+read(6, "", 214)                        = 0
 close(6)                                = 0
-stat("/dev/pts4", 0x7fffe987c8c0)       = -1 ENOENT (No such file or directory)
-stat("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
-readlink("/proc/6036/fd/2", "/dev/pts/4", 127) = 10
-stat("/dev/pts/4", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
-stat("/proc/6096", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/6096/stat", O_RDONLY)       = 6
-read(6, "6096 (python) T 3545 6096 3545 3"..., 1024) = 322
+stat64("/proc/4808", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/4808/stat", O_RDONLY)       = 6
+read(6, "4808 (python) T 2290 4808 2290 3"..., 1024) = 298
+read(6, "", 726)                        = 0
 close(6)                                = 0
-open("/proc/6096/status", O_RDONLY)     = 6
-read(6, "Name:\tpython\nState:\tT (stopped)\n"..., 1024) = 945
+open("/proc/4808/status", O_RDONLY)     = 6
+read(6, "Name:\tpython\nState:\tT (stopped)\n"..., 1024) = 804
+read(6, "", 220)                        = 0
 close(6)                                = 0
-stat("/dev/pts4", 0x7fffe987c8c0)       = -1 ENOENT (No such file or directory)
-stat("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
-readlink("/proc/6096/fd/2", "/dev/pts/4", 127) = 10
-stat("/dev/pts/4", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
-stat("/proc/6111", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/6111/stat", O_RDONLY)       = 6
-read(6, "6111 (python) T 3545 6111 3545 3"..., 1024) = 322
+readlink("/proc/4808/tty", 0xb776a220, 127) = -1 ENOENT (No such file or directory)
+stat64("/dev/pts0", 0xbfbfe530)         = -1 ENOENT (No such file or directory)
+stat64("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+readlink("/proc/4808/fd/2", "/dev/pts/0", 127) = 10
+stat64("/dev/pts/0", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+stat64("/proc/4836", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/4836/stat", O_RDONLY)       = 6
+read(6, "4836 (strace) R 2290 4836 2290 3"..., 1024) = 279
+read(6, "", 745)                        = 0
 close(6)                                = 0
-open("/proc/6111/status", O_RDONLY)     = 6
-read(6, "Name:\tpython\nState:\tT (stopped)\n"..., 1024) = 944
+open("/proc/4836/status", O_RDONLY)     = 6
+read(6, "Name:\tstrace\nState:\tR (running)\n"..., 1024) = 804
+read(6, "", 220)                        = 0
 close(6)                                = 0
-stat("/dev/pts4", 0x7fffe987c8c0)       = -1 ENOENT (No such file or directory)
-stat("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
-readlink("/proc/6111/fd/2", "/dev/pts/4", 127) = 10
-stat("/dev/pts/4", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
-stat("/proc/6128", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/6128/stat", O_RDONLY)       = 6
-read(6, "6128 (dhclient) S 1375 6128 1375"..., 1024) = 175
+readlink("/proc/4836/tty", 0xb776a220, 127) = -1 ENOENT (No such file or directory)
+stat64("/dev/pts0", 0xbfbfe530)         = -1 ENOENT (No such file or directory)
+stat64("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+readlink("/proc/4836/fd/2", "/home/vas/Documents/1337rootkit/helper_scripts/strace_ps.txt", 127) = 60
+stat64("/home/vas/Documents/1337rootkit/helper_scripts/strace_ps.txt", {st_mode=S_IFREG|0664, st_size=76193, ...}) = 0
+stat64("/dev/pts/0", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+stat64("/proc/4837", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
+open("/proc/4837/stat", O_RDONLY)       = 6
+read(6, "4837 (ps) R 4836 4836 2290 34816"..., 1024) = 270
+read(6, "", 754)                        = 0
 close(6)                                = 0
-open("/proc/6128/status", O_RDONLY)     = 6
-read(6, "Name:\tdhclient\nState:\tS (sleepin"..., 1024) = 893
+open("/proc/4837/status", O_RDONLY)     = 6
+read(6, "Name:\tps\nState:\tR (running)\nTgid"..., 1024) = 801
+read(6, "", 223)                        = 0
 close(6)                                = 0
-stat("/proc/7197", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/7197/stat", O_RDONLY)       = 6
-read(6, "7197 (kworker/0:1) S 2 0 0 0 -1 "..., 1024) = 164
-close(6)                                = 0
-open("/proc/7197/status", O_RDONLY)     = 6
-read(6, "Name:\tkworker/0:1\nState:\tS (slee"..., 1024) = 613
-close(6)                                = 0
-stat("/proc/7200", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/7200/stat", O_RDONLY)       = 6
-read(6, "7200 (kworker/u2:0) S 2 0 0 0 -1"..., 1024) = 164
-close(6)                                = 0
-open("/proc/7200/status", O_RDONLY)     = 6
-read(6, "Name:\tkworker/u2:0\nState:\tS (sle"..., 1024) = 614
-close(6)                                = 0
-stat("/proc/7251", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/7251/stat", O_RDONLY)       = 6
-read(6, "7251 (strace) R 3545 7251 3545 3"..., 1024) = 350
-close(6)                                = 0
-open("/proc/7251/status", O_RDONLY)     = 6
-read(6, "Name:\tstrace\nState:\tR (running)\n"..., 1024) = 948
-close(6)                                = 0
-stat("/dev/pts4", 0x7fffe987c8c0)       = -1 ENOENT (No such file or directory)
-stat("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
-readlink("/proc/7251/fd/2", "/home/vpatov/Documents/rootkit/s"..., 127) = 44
-stat("/home/vpatov/Documents/rootkit/strace_ps.txt", {st_mode=S_IFREG|0664, st_size=77812, ...}) = 0
-stat("/dev/pts/4", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
-stat("/proc/7253", {st_mode=S_IFDIR|0555, st_size=0, ...}) = 0
-open("/proc/7253/stat", O_RDONLY)       = 6
-read(6, "7253 (ps) R 7251 7251 3545 34820"..., 1024) = 308
-close(6)                                = 0
-open("/proc/7253/status", O_RDONLY)     = 6
-read(6, "Name:\tps\nState:\tR (running)\nTgid"..., 1024) = 943
-close(6)                                = 0
-stat("/dev/pts4", 0x7fffe987c8c0)       = -1 ENOENT (No such file or directory)
-stat("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
-readlink("/proc/7253/fd/2", "/home/vpatov/Documents/rootkit/s"..., 127) = 44
-stat("/home/vpatov/Documents/rootkit/strace_ps.txt", {st_mode=S_IFREG|0664, st_size=78569, ...}) = 0
-stat("/dev/pts/4", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 4), ...}) = 0
+readlink("/proc/4837/tty", 0xb776a220, 127) = -1 ENOENT (No such file or directory)
+stat64("/dev/pts0", 0xbfbfe530)         = -1 ENOENT (No such file or directory)
+stat64("/dev/pts", {st_mode=S_IFDIR|0755, st_size=0, ...}) = 0
+readlink("/proc/4837/fd/2", "/home/vas/Documents/1337rootkit/helper_scripts/strace_ps.txt", 127) = 60
+stat64("/home/vas/Documents/1337rootkit/helper_scripts/strace_ps.txt", {st_mode=S_IFREG|0664, st_size=77171, ...}) = 0
+stat64("/dev/pts/0", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
 getdents(5, /* 0 entries */, 32768)     = 0
 close(5)                                = 0
-write(1, "  PID TTY          TIME CMD\n 354"..., 208  PID TTY          TIME CMD
- 3545 pts/4    00:00:00 bash
- 6036 pts/4    00:00:00 python
- 6096 pts/4    00:00:00 python
- 6111 pts/4    00:00:00 python
- 7251 pts/4    00:00:00 strace
- 7253 pts/4    00:00:00 ps
-) = 208
-close(1)                                = 0
-close(2)                                = 0
+write(1, "  PID TTY          TIME CMD\n 229"..., 146  PID TTY          TIME CMD
+ 2290 pts/0    00:00:00 bash
+ 4808 pts/0    00:00:13 python
+ 4836 pts/0    00:00:00 strace
+ 4837 pts/0    00:00:00 ps
+) = 146
 exit_group(0)                           = ?
-+++ exited with 0 +++

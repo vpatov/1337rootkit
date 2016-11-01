@@ -4,7 +4,7 @@
 
 MODULE_INFO(vermagic, VERMAGIC_STRING);
 
-__visible struct module __this_module
+struct module __this_module
 __attribute__((section(".gnu.linkonce.this_module"))) = {
 	.name = KBUILD_MODNAME,
 	.init = init_module,
@@ -17,9 +17,10 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0xc6c01fa, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0x27e1a049, __VMLINUX_SYMBOL_STR(printk) },
-	{ 0xbdfb6dbb, __VMLINUX_SYMBOL_STR(__fentry__) },
+	{ 0x9c3f02a1, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
+	{ 0x15568631, __VMLINUX_SYMBOL_STR(lookup_address) },
+	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 };
 
 static const char __module_depends[]
@@ -28,4 +29,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "4010191A735696554E53987");
+MODULE_INFO(srcversion, "FDB5BB5559E1767DDBD9B97");
