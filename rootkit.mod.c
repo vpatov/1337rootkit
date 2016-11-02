@@ -18,8 +18,8 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0x9c3f02a1, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0x15568631, __VMLINUX_SYMBOL_STR(lookup_address) },
+	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 };
 
@@ -29,4 +29,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "FDB5BB5559E1767DDBD9B97");
+MODULE_INFO(srcversion, "B39AB1350EC40DBE16A52EF");
