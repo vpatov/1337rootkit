@@ -850,6 +850,7 @@ deps_/home/vas/Documents/1337rootkit/rootkit.o := \
     $(wildcard include/config/have/perf/regs.h) \
   /usr/src/linux-headers-3.11.0-15-generic/arch/x86/include/uapi/asm/perf_regs.h \
   /usr/src/linux-headers-3.11.0-15-generic/arch/x86/include/asm/local.h \
+  include/linux/dirent.h \
 
 /home/vas/Documents/1337rootkit/rootkit.o: $(deps_/home/vas/Documents/1337rootkit/rootkit.o)
 

