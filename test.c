@@ -1,26 +1,25 @@
 #define _GNU_SOURCE
 #include <dirent.h>     /* Defines DT_* constants */
 #include <fcntl.h>
-       #include <stdio.h>
-       #include <unistd.h>
-       #include <stdlib.h>
-       #include <sys/stat.h>
-       #include <sys/syscall.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/syscall.h>
 
-       #define handle_error(msg) \
-               do { perror(msg); exit(EXIT_FAILURE); } while (0)
+#define handle_error(msg) \
+       do { perror(msg); exit(EXIT_FAILURE); } while (0)
 
-       struct linux_dirent {
-           long           d_ino;
-           off_t          d_off;
-           unsigned short d_reclen;
-           char           d_name[];
-       };
+#define BUF_SIZE 1024
 
-       #define BUF_SIZE 1024
+struct linux_dirent {
+	long           d_ino;
+	off_t          d_off;
+	unsigned short d_reclen;
+	char           d_name[];
+};
 
-       int
-       main(int argc, char *argv[])
+int main(int argc, char *argv[])
        {
            int fd, nread;
            char buf[BUF_SIZE];

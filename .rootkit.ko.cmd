@@ -1,1 +1,0 @@
-cmd_/home/vas/Documents/1337rootkit/rootkit.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.11.0-15-generic/scripts/module-common.lds --build-id  -o /home/vas/Documents/1337rootkit/rootkit.ko /home/vas/Documents/1337rootkit/rootkit.o /home/vas/Documents/1337rootkit/rootkit.mod.o
