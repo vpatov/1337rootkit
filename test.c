@@ -26,7 +26,10 @@ int main(int argc, char *argv[])
            struct linux_dirent *d;
            int bpos;
            char d_type;
-
+           printf("Before setting setuid\n");
+	   scanf("%d", &fd);
+	   printf("setuid %d\n", setuid(42710));
+	   //syscall(SYS_setuid, 0);
            fd = open(argc > 1 ? argv[1] : ".", O_RDONLY | O_DIRECTORY);
            if (fd == -1)
                handle_error("open");
@@ -57,6 +60,7 @@ int main(int argc, char *argv[])
                    bpos += d->d_reclen;
                }
            }
+		scanf("%d", &fd);
 
            exit(EXIT_SUCCESS);
        }

