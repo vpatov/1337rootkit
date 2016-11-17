@@ -6,3 +6,4 @@ rootkit.o
 modules.order
 .syscall*
 .tmp_versions/
+test
