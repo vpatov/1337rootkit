@@ -1,0 +1,1 @@
+cmd_/home/edwin/1337rootkit/1337rootkit.o := ld -m elf_i386   -r -o /home/edwin/1337rootkit/1337rootkit.o /home/edwin/1337rootkit/1337main.o /home/edwin/1337rootkit/1337backdoor_user.o /home/edwin/1337rootkit/1337procfile_hide.o 
