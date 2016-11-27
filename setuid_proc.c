@@ -1,7 +1,6 @@
 #define _GNU_SOURCE
 #include <limits.h>
 #include <stdio.h>
-#include <stdlib.h>
 
 /*
  * Example that shows rootkit sets the IDs of process to root if process knows
