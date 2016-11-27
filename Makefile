@@ -1,11 +1,11 @@
-obj-m += rootkit.o
+obj-m += 1337rootkit.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) modules
-	cc test.c -o test
-	cc setuid_proc.c -o setuid_proc
+	cc 1337test.c -o 1337test
+	cc 1337setuid_proc.c -o 1337setuid_proc
 
 clean:
 	make -C /lib/modules/$(shell uname -r)/build M=$(shell pwd) clean
-	rm -f test
-	rm -f setuid_proc
+	rm -f 1337test
+	rm -f 1337setuid_proc
