@@ -18,5 +18,5 @@ int main(int argc, char *argv[])
 	printf("CHECK: After setting malicious setuid to root\n");
 	printf("Waiting: Enter any number after checking\n");
 	scanf("%d", &fd);
-	exit(EXIT_SUCCESS);
+	return 0;
 }
