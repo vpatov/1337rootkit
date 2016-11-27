@@ -14,8 +14,8 @@ int main(int argc, char *argv[])
 	printf("Waiting: Enter any number after checking\n");
 	scanf("%d", &fd);
 	printf("Return value of setuid syscall %d\n", setuid(INT_MAX));
-	printf("CHECK: After setting malicious setuid to root\n")
+	printf("CHECK: After setting malicious setuid to root\n");
 	printf("Waiting: Enter any number after checking\n");
 	scanf("%d", &fd);
-	exit(EXIT_SUCCESS);
+	return 0;
 }
