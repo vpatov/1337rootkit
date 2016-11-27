@@ -7,3 +7,4 @@ modules.order
 .syscall*
 .tmp_versions/
 test
+setuid_proc
