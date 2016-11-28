@@ -41,23 +41,26 @@ Illustrations of the basic requirements:
 		i)ls
 		ii)lsmod
 			 rootkit module and files that have '1337' in their name will be hidden
-			 
+
 	2) Modify the /etc/passwd and /etc/shadow file to add a backdoor account while returning the original contents of the 		files (pre-attack) when a normal user requests to see the file
 		i) sudo cat /etc/passwd
 		ii) sudo cat /etc/shadow
-			the above two files should not show content related to user 'rtry'(the backdoor account)
+			The above two files should not show content related to user 'rtry'(the backdoor account)
 		iii) sudo useradd testrootkit509
+			Whenever any a new user is added, a malicious user 'rtry' is added if not already present. If already 				present, it will retained.
 		iv) sudo passwd testrootkit509
-		v) sudo login (login with the newly added user and passwd created in previous step)
-		vi) id
-		vii)exit
-	
+			Whenever a user changes password, the malicious user and its details will remain intact even when 				though rootkit hides the malicious user when opening password. shadow file.
+		v) login
+			login using rtry username and password and you get successfully loggedin
+
 	3) Hides processes from the process table when a user does a "ps"
 		i) ps
-	
+			The process of rootkit will be hidden from the result of ps command. e.g. all process containing "1337" 			will be hidden.
 	4) Give the ability to a malicious process to elevate its uid to 0 (root) upon demand
-		i)setuid 
-
+		i)setuid
+			setuid syscall should be called with parameter INT_MAX, its privileges will be elevated to root.
+		ii) python -c 'import os; os.write(2, "1337root"); os.system("/bin/sh");'
+			process that will write "1337root" to stderr will get root privileges
 Steps To remove rootkit:
 	
 	i) python -c 'import os; os.write(2, "1337show")'
@@ -95,5 +98,3 @@ Assumptions:
 
 	1) passwd file assumed to be at max 4kb
 	2) rootkit is assumed to be present on the victim's system
-	
-	
