@@ -8,7 +8,8 @@
  *		Vasia Patov () 
  *	Project: Rootkit
  **********************************************************************************/
-System Specification:
+ 
+ System Specification:
 	
 		This project is built and tested on ubuntu 12.04 having kernel version 3.2.0-115-generic-pae
 
@@ -87,6 +88,7 @@ Additional considerations:
 		     sudo rmmod -f 1337rootkit.ko
 
 Assumptions:
+
 	1) passwd file assumed to be at max 4kb
 	2) rootkit is assumed to be present on the victim's system
 	
