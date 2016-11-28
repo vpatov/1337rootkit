@@ -3,7 +3,7 @@
  *	CSE509 System Security Fall 2016
  *	Written By:
  *		Edwin Yan (edyan@cs.stonybrook.edu)
- *		Rashmi Makheja(rmakheja@cs.stonybrook.edu)
+ *		Rashmi Makheja (rmakheja@cs.stonybrook.edu)
  *		Sagar Shah (schshah@cs.stonybrook.edu)
  *		Vasia Patov (vpatov@cs.stonybrook.edu) 
  *	Project: Rootkit
@@ -12,7 +12,7 @@
  System Specification:
 	
 		This project is built and tested on ubuntu 12.04 having kernel version 3.2.0-115-generic-pae
-
+VM ova: https://goo.gl/zjEnPb
 Username : iambate
 Password : rootkit1337
 
@@ -31,14 +31,14 @@ Steps to install rootkit:
 		installs the rootkit module
 
 
-Illustrations of the basic requirements:
+Steps to test the basic requirements:
 
 	1) Hide specific files and directories from showing up when a user does "ls" and similar commands
 		i)ls
 		ii)lsmod
 			 rootkit module and files that have '1337' in their name will be hidden
 			 
-	2) Modify the /etc/passwd and /etc/shadow file to add a backdoor account while returning the original contents of the files (pre-attack) when a normal user requests to see the file
+	2) Modify the /etc/passwd and /etc/shadow file to add a backdoor account while returning the original contents of the 		files (pre-attack) when a normal user requests to see the file
 		i) sudo cat /etc/passwd
 		ii) sudo cat /etc/shadow
 			the above two files should not show content related to user 'rtry'(the backdoor account)
