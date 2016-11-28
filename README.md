@@ -31,7 +31,7 @@ Steps to install rootkit:
 		installs the rootkit module
 
 
-Steps to test the basic requirements:
+Illustrations of the basic requirements:
 
 	1) Hide specific files and directories from showing up when a user does "ls" and similar commands
 		i)ls
