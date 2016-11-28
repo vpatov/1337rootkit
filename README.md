@@ -1,14 +1,17 @@
-***********************************************************/
-	Last Updated: Nov 27, 2016
-	CSE509 System Security Fall 2016
-	Written By:
-		Edwin Y
-		Rashmi Makheja(rmakheja@cs.stonybrook.edu)
-		Sagar Shah (schshah@cs.stonybrook.edu)
-		Vasia Patov () 
-	Project: Rootkit
-***********************************************************/
-
+/**********************************************************************************
+ *	Last Updated: Nov 27, 2016
+ *	CSE509 System Security Fall 2016
+ *	Written By:
+ *		Edwin Y
+ *		Rashmi Makheja(rmakheja@cs.stonybrook.edu)
+ *		Sagar Shah (schshah@cs.stonybrook.edu)
+ *		Vasia Patov () 
+ *	Project: Rootkit
+ **********************************************************************************/
+System Specification:
+	
+		This project is built and tested on ubuntu 12.04 having kernel version 3.2.0-115-generic-pae
+		
 Steps to install rootkit:
 
 	1) build the kernel, install modules and reboot the system
@@ -20,7 +23,8 @@ Steps to install rootkit:
 		installs the rootkit module
 
 
-Steps to test the functionalities:
+Steps to test the basic requirements:
+
 	1) Hide specific files and directories from showing up when a user does "ls" and similar commands
 		i)ls
 		ii)lsmod
@@ -34,21 +38,17 @@ Steps to test the functionalities:
 		v) sudo login (login with the newly added user and passwd created in previous step)
 		vi) id
 		vii)exit
+	
 	3) Hides processes from the process table when a user does a "ps"
 		i) ps
+	
 	4) Give the ability to a malicious process to elevate its uid to 0 (root) upon demand
 		i)setuid 
 
+Steps To remove rootkit:
+	i)
+	ii)
+Additional considerations:
 
-
-
-
-
-
-	This project is built and tested on ubuntu 12.04 having kernel version 3.2.0-115-generic-pae.The rootkit once installed in the victim's system will have following functionailty :
-
-	1) The system will still work as it was working before rootkit installation.
-	2) No delay in the reponse time of commands like 'cat', 'ls', etc 
-	3) Rootkit and all its files(containing '1337' in their name) will NOT be visible to the victim through any command
-	4) A backdoor account, which is inaccessible by any other user, is added for attacker to login
-	5) Attacker can login using backdoor account via SSH also and the rootkit module can only be removed if one secret command is used before rmmod
+	1) No difference in response time of any operation
+	2) Ways to 
