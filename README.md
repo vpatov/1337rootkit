@@ -2,10 +2,10 @@
  *	Last Updated: Nov 27, 2016
  *	CSE509 System Security Fall 2016
  *	Written By:
- *		Edwin Y
+ *		Edwin Yan (edyan@cs.stonybrook.edu)
  *		Rashmi Makheja(rmakheja@cs.stonybrook.edu)
  *		Sagar Shah (schshah@cs.stonybrook.edu)
- *		Vasia Patov () 
+ *		Vasia Patov (vpatov@cs.stonybrook.edu) 
  *	Project: Rootkit
  **********************************************************************************/
  
