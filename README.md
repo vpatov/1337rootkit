@@ -2,16 +2,18 @@
  *	Last Updated: Nov 27, 2016
  *	CSE509 System Security Fall 2016
  *	Written By:
- *		Edwin Yan (edyan@cs.stonybrook.edu)
- *		Rashmi Makheja (rmakheja@cs.stonybrook.edu)
- *		Sagar Shah (schshah@cs.stonybrook.edu)
- *		Vasia Patov (vpatov@cs.stonybrook.edu) 
+ 
+ 		Edwin Yan (edyan@cs.stonybrook.edu)
+ 		Rashmi Makheja (rmakheja@cs.stonybrook.edu)
+ 		Sagar Shah (schshah@cs.stonybrook.edu)
+ 		Vasia Patov (vpatov@cs.stonybrook.edu) 
  *	Project: Rootkit
  **********************************************************************************/
  
  System Specification:
 	
 		This project is built and tested on ubuntu 12.04 having kernel version 3.2.0-115-generic-pae
+		
 VM ova: https://goo.gl/zjEnPb
 Username : iambate
 Password : rootkit1337
@@ -31,7 +33,7 @@ Steps to install rootkit:
 		installs the rootkit module
 
 
-Steps to test the basic requirements:
+Illustrations of the basic requirements:
 
 	1) Hide specific files and directories from showing up when a user does "ls" and similar commands
 		i)ls
